@@ -20,33 +20,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="container">
             <div class="intro">
                 <h2 class="text-center">Mes Articles</h2>
-                <center><button class="btn-primary" type="button">AJOUTER OBJET</button></center>
+                <center><?= anchor('mesobjets/addForm', '<button class="btn-primary" type="button">AJOUTER OBJET</button>') ?></center>
             </div>
             <div class="row articles">
-                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/img/desk.jpg"></a>
-                    <h3 class="name">Article Title</h3>
-                    <p class="description"><label for="">Prix :</label> :10 000A</p>
-                    <p class="description"><label for="">Description :</label> Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
-                    <p></p>
-                    <div></div>
-                    <div></div><button class="btn-primary" type="button">Update</button><button class="btn-primary" type="button">Delete</button>
-                </div>
-                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/img/building.jpg"></a>
-                    <h3 class="name">Article Title</h3>
-                    <p class="description"><label for="">Prix :</label>10 000A</p>
-                    <p class="description"> <label for="">Description :</label> Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
-                    <p></p><button class="btn-primary" type="button">Update</button><button class="btn-primary" id="but" type="button">Delete</button>
-                    <div></div>
-                    <div></div>
-                </div>
-                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/img/loft.jpg"></a>
-                    <h3 class="name">Article Title</h3>
-                    <p class="description"><label for="">Prix :</label> 10 000A</p>
-                    <p class="description"><label for="">Description :</label> Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
-                    <p></p>
-                    <div></div>
-                    <div></div><button class="btn-primary" type="button">Update</button><button class="btn-primary" type="button">Delete</button>
-                </div>
+                <?php foreach($objets as $objet) { ?>
+                    <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/img/desk.jpg"></a>
+                        <h3 class="name"><?= $objet->titre ?></h3>
+                        <p class="description"><label for="">Prix :</label><?= $objet->prix ?></p>
+                        <p class="description"><label for="">Description :</label> <?= $objet->description ?></p>
+                        <p></p>
+                        <div></div>
+                        <!-- TODO -->
+                        <div></div><span><?= anchor('mesobjets/updateForm', '<button class="btn-primary" type="button">Update</button>') ?></span><span><?= anchor('mesobjets/delete?id='.$objet->id, '<button class="btn-primary" type="button">Delete</button>') ?></span>
+                    </div>
+                <?php } ?>
             </div>
         </div>
     </section>
