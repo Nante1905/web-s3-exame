@@ -17,8 +17,16 @@ create table objet (
     titre varchar(150),
     description text,
     prix double,
-    id
-);  
+    idutilisateur int,
+    foreign key (idutilisateur) references utilisateur(id)
+);
+
+create table objetphoto (
+    id int primary key not null auto_increment,
+    url varchar(250),
+    idobjet int,
+    foreign key (idobjet) references objet(id)
+);
 
 insert into utilisateur (nom,email,password) values ('Jean','jean@gmail.com','jean1'),
                                                     ('Chris','chris@gmail.com','chris1'),
@@ -30,3 +38,9 @@ insert into categorie (nom) values ('Vetement'),
                                     ('Eléctro-ménager'),
                                     ('Construction'),
                                     ('Auto-moto');
+
+insert into objet (titre,description,prix,idutilisateur) values ('Voiture','En bon etat',200000000,2),
+                                                                ('Robe','Usee',1500,1),
+                                                                ('Imprimante','Usee',35000,3),
+                                                                ('Machine a laver','Neuve',6300000,4);
+                                                            
