@@ -15,13 +15,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <body>
     <section class="contact-clean">
-        <form method="post">
+        <?= form_open('mesobjets/add', ['enctype' => 'multipart/form-data']) ?>
             <h2 class="text-center">Ajouter un objet</h2>
-            <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Nom"></div><input class="form-control" type="number" name="prix" placeholder="Prix de l'objet">
+            <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="nom"></div><input class="form-control" type="number" name="prix" placeholder="Prix de l'objet">
             <div></div>
             <div></div>
-            <div class="mb-3"></div><input class="form-control" type="file" name="photo">
-            <div class="mb-3"></div><textarea class="form-control" name="description" placeholder="Description"></textarea>
+            <div class="mb-3"></div><input class="form-control" type="file" name="photos[]" multiple>
+            <div class="mb-3"></div><textarea class="form-control" name="description" placeholder="description"></textarea>
             <div></div>
             <div class="mb-3"><button class="btn btn-primary" type="submit">AJOUTER</button></div>
         </form>

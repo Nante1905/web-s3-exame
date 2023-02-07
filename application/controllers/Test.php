@@ -29,8 +29,7 @@ class Test extends CI_Controller
   public function index()
   {
 
-    // $this->load->view('Ajout');
-    echo 'test';
+    $this->load->view('Ajout');
   }
   public function categorie(){
     $props = [
