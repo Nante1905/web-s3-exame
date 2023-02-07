@@ -29,7 +29,8 @@ class Admin extends CI_Controller
 
   public function index()
   {
-    $this->load->view('list-categorie');
+    // $this->load->view('list-categorie');
+    echo 'admin panel';
   }
 
   public function form() {

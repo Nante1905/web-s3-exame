@@ -27,10 +27,13 @@ class Login extends CI_Controller
     $this->load->model('Utilisateur_model','user',true); 
   }
   public function admin(){
-    $this->load->view('admin');
+    $this->load->view('login', [
+      'email' => 'admin',
+      'pass' => 'admin'
+    ]);
   }
   public function user(){
-    $this->load->view('client');
+    $this->load->view('login');
   }
 
   public function index()
@@ -43,7 +46,7 @@ class Login extends CI_Controller
 
     if($email=='admin'){
       if($mdp=='admin'){
-        redirect('login/admin');
+        redirect('admin');
       }
     }
     else{
