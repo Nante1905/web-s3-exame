@@ -42,5 +42,19 @@ insert into categorie (nom) values ('Vetement'),
 insert into objet (titre,description,prix,idutilisateur) values ('Voiture','En bon etat',200000000,2),
                                                                 ('Robe','Usee',1500,1),
                                                                 ('Imprimante','Usee',35000,3),
-                                                                ('Machine a laver','Neuve',6300000,4);
+                                                                ('Machine a laver','Neuve',6300000,4),
+                                                                ('maison','luxueuse et spacieuse',150000000,5),
+                                                                ('ordinateur','neuf',6000000,2);
+
+
+insert into objetphoto (url,idobjet) values ('blackhouse',5),
+                                            ('mackbook',6),
+                                            ('robefleuri',2),
+                                            ('greencar',1),
+                                            ('interieur-voiture',1),
+                                            ('epson',3),
+                                            ('salledebain',5),
+                                            ('chambre',5),
+                                            ('salon',5);
+
                                                             
