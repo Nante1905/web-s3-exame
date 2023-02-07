@@ -49,12 +49,14 @@ class Utilisateur_model extends CI_Model {
 
     return false;
   }
-  public function inserer($email,$mdp){
+  public function insert($nom,$email,$mdp){
     $data = array(
+      'id' => '',
+      'nom' => $nom,
       'email' =>$email,
       'password'=>$mdp
     );
-    $this->db->insert('uilisateur',$data);
+    $this->db->insert('utilisateur',$data);
   }
 
   // ------------------------------------------------------------------------
