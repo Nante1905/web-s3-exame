@@ -16,9 +16,9 @@
         <form method="post">
             <h2 class="text-center">Connection</h2>
             <div class="mb-3"><input class="form-control" type="text" name="email" placeholder="Email"></div>
-            <div class="mb-3"><input class="form-control is-invalid" type="email" name="psw" placeholder="Password"></div>
             <div class="mb-3"></div>
-            <div class="mb-3"><button class="btn btn-primary" type="submit">send </button></div>
+            <div class="mb-3"></div>
+            <div class="mb-3"><input class="form-control" type="password" name="mdp" placeholder="Password"></div><button class="btn btn-primary" type="button">Log in</button>
         </form>
     </section>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>

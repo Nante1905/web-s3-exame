@@ -16,8 +16,8 @@
         <div class="form-container">
             <form method="post">
                 <h2 class="text-center"><strong>Create</strong> an account.</h2>
-                <div class="mb-3"><input class="form-control" type="email" name="name" placeholder="Name"></div>
-                <div class="mb-3"><input class="form-control" type="password" name="email" placeholder="Email"></div>
+                <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Name"></div>
+                <div class="mb-3"><input class="form-control" type="text" name="email" placeholder="Email"></div>
                 <div class="mb-3"><input class="form-control" type="password" name="mdp" placeholder="Password"></div>
                 <div class="mb-3"></div>
                 <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Sign Up</button></div><a class="already" href="#">You already have an account? Login here.</a>
