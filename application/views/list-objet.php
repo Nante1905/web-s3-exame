@@ -8,22 +8,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="nav-item">Deconnexion</div>
 	</div>
 	<div class="list-objets">
-		<div class="card-objet">
-			<div class="img"><img src="" alt="Image" /></div>
-			
-			<div class="card-info">
-				<div class="nom">Zavatra</div>
-				<div class="prix">1234</div>
+		<?php foreach($objets as $objet) { ?>
+			<div class="card-objet">
+				<div class="img"><img src="" alt="Image" /></div>
+
+				<div class="card-info">
+					<div class="nom"><?= $objet->titre ?></div>
+					<div class="prix"><?= $objet->prix ?></div>
+				</div>
 			</div>
-		</div>
-		<div class="card-objet">
-			<div class="img"><img src="" alt="Image" /></div>
-			<div class="card-info">
-				<div class="nom">Zavatra</div>
-				<div class="prix">1234</div>
-			</div>
-		</div>
-		<div class="card-objet">
+		<?php } ?>
+		<!-- <div class="card-objet">
 			<div class="img"><img src="" alt="Image" /></div>
 			<div class="card-info">
 				<div class="nom">Zavatra</div>
@@ -58,5 +53,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="prix">1234</div>
 			</div>
 		</div>
+		<div class="card-objet">
+			<div class="img"><img src="" alt="Image" /></div>
+			<div class="card-info">
+				<div class="nom">Zavatra</div>
+				<div class="prix">1234</div>
+			</div>
+		</div> -->
 	</div>
 </div>
