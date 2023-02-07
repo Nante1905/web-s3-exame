@@ -21,28 +21,28 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Objet extends CI_Controller
 {
 
-  public $propriete;
+  public $props;
   
   public function __construct()
   {
     parent::__construct();
     $this->load->model('Object_model','objet',true);
-    $this->propriete = [
+    $this->props = [
       'component' => 'list-objet',
-      'style' => 'list-objet',
+      'style' => ['list-objet'],
       'title' => 'Liste objets'
     ];
   }
 
   public function index()
   {
-    $datapro=$this->propriete;
-    $this->load->view('list-objet',$datapro);
-  }
+    $data= [
+      'objets' => $this->objet->getAllExceptUsr()
+    ];
 
-  public function passAllObject(){
-    $data=$this->objet->getAllExceptUsr();
-    $this->load->view('list-objet',$data);
+    $dataAll = array_merge($data, $this->props);
+
+    $this->load->view('templates/body',$dataAll);
   }
 
 }

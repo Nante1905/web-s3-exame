@@ -54,12 +54,17 @@ class Login extends CI_Controller
   
       // echo $auth;
       if($auth == true){
-        redirect('test');
+        redirect('objet');
       }
       else{
         redirect('login/user');
       }
     }
+  }
+
+  public function disconnect() {
+    $this->session->unset_userdata('usrsession');
+    redirect('login/user');
   }
 
 }
