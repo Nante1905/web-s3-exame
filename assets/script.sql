@@ -9,5 +9,5 @@ create table utilisateur (
 
 create table categorie (
     id int primary key not null auto_increment,
-    nom varchar(100),
+    nom varchar(100)
 );
