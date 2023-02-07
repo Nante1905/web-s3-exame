@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+}
+input[type=text]{
+    width: 25rem;
+    height: 3rem;
+    margin-left: 36%;
+    margin-top: 3%;
+}
+input[type=submit]{
+    width: 9rem;
+    height: 2rem;
+    margin-left: 45%;
+    margin-top: 2%;
+    background-color: #ce3e3e;
+    color: wheat;
+    font-weight: 900;
+    border: wheat;
+}
