@@ -42,7 +42,7 @@ class Utilisateur_model extends CI_Model {
 
     $data = $query->result();
 
-    if(count($data) == 1){
+    if(count($data) >= 1){
       $this->session->set_userdata('usrsession',$data[0]->email);
       return true;
     }

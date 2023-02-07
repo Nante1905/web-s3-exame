@@ -59,7 +59,7 @@ class Admin extends CI_Controller
     redirect('admin');
   }
 
-  public function update() {
+  public function update($id) {
     $id = $this->input->post('id');
     $nom = $this->input->post('name');
 
