@@ -47,6 +47,14 @@ class Test extends CI_Controller
     ];
     $this->load->view('templates/body',$props);
   }
+  public function detail(){
+    $props = [
+      'component' => 'detail-objet',
+      'style' => ['detail-objet'],
+      'title' => 'Modification categorie'
+    ];
+    $this->load->view('templates/body',$props);
+  }
 
 }
 

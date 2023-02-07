@@ -1,0 +1,49 @@
+.descri-img{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 60rem;
+}
+img{
+    width: 28rem;
+    height: 28rem;
+    margin-top: 2%;
+}
+.all-img{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+.proposition{
+
+    margin-left: 50%;
+    margin-top: 23%;
+}
+select{
+    width: 10rem;
+    height: 2rem;
+}
+button{
+    width: 10rem;
+    height: 3rem;
+}
+.descri{
+    text-align: center;
+}
+h3{
+    margin-left: 8%;
+}
+input[type=submit]{
+    color: #ce3e3e;
+    border: 1px solid #ce3e3e;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+input[type=submit]:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 5rem;
+    margin-top: 1rem;
+}
