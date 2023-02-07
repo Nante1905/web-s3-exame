@@ -38,7 +38,7 @@ class Object_model extends CI_Model {
   tous les object sauf les siennes
   */
   public function getAllExceptUsr(){
-    $this->db->select(*);
+    $this->db->select('*');
     $this->db->where('idutilisateur =!',$this->session->userdata('usrsession'));
     $query=$this->db->get('objet');
     $data=$query->result();
