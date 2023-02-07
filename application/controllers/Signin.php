@@ -20,11 +20,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Signin extends CI_Controller
 {
+
+  public $errorMessages;
     
   public function __construct()
   {
     parent::__construct();
     $this->load->model('Utilisateur_model','user',true); 
+    $this->errorMessages = [
+      'required' => 'Le champ %s est obligatoire'
+    ];
   }
 
   public function index()
@@ -37,15 +42,9 @@ class Signin extends CI_Controller
     $email = $this->input->post('mail');
     $password = $this->input->post('pass');
 
-    $this->form_validation->set_rules('nom','Nom','required',[
-      'required' => 'Le champ %s est obligatoire',
-    ]);
-    $this->form_validation->set_rules('mail','Email','required',[
-      'required' => 'Le champ %s est obligatoire',
-    ]);
-    $this->form_validation->set_rules('pass','Mot de passe','required',[
-      'required' => 'Le champ %s est obligatoire',
-    ]);
+    $this->form_validation->set_rules('nom','Nom','required',$this->errorMessages);
+    $this->form_validation->set_rules('mail','Email','required',$this->errorMessages);
+    $this->form_validation->set_rules('pass','Mot de passe','required',$this->errorMessages);
 
     if($this->form_validation->run() == false){
       $this->load->view('inscripion');
