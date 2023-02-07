@@ -12,14 +12,13 @@ create table categorie (
     nom varchar(100)
 );
 
-insert into utilisateur (nom,email,password) values ('admin','admin','admin'),
-                                                    ('Jean','jean@gmail.com','jean1'),
-                                                    ('Chis','chris@gmail.com','chris1'),
+insert into utilisateur (nom,email,password) values ('Jean','jean@gmail.com','jean1'),
+                                                    ('Chris','chris@gmail.com','chris1'),
                                                     ('Tony','tony@gmail.com','tony1'),
                                                     ('Dax','dax@gmail.com','dax1');
 
 insert into categorie (nom) values ('Vetement'),
                                     ('Eléctronique'),
-                                    ('Eléctro-ménagé'),
+                                    ('Eléctro-ménager'),
                                     ('Construction'),
                                     ('Auto-moto');
