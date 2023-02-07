@@ -29,15 +29,29 @@ class Admin extends CI_Controller
 
   public function index()
   {
-    $this->load->view('list-categ');
+
+    $categories = $this->categorie->findAll();
+
+    $this->load->view('templates/body', [
+      'style' => array(
+        'list-categ'
+      ),
+      'component' => 'list-categ',
+      'title' => 'Liste des categories',
+      'categories' => $categories
+    ]);
   }
 
   public function form() {
     $action = $this->input->get('action');
     if($action == 'add') {
-      $this->load->view('categorie-form', [
+      $this->load->view('templates/body', [
         'titre' => 'Ajouter Categorie',
-        'values' => []
+        'values' => [''],
+        'component' => 'form-categ',
+        'style' => [
+          'form-categ'
+        ]
       ]);
     } else if($action == 'update') {
       $idCategory = $this->input->get('id');
@@ -52,10 +66,28 @@ class Admin extends CI_Controller
   }
 
   public function add() {
-    $nom = $this->input->post('name');
-    $this->categorie->insert($nom);
+    $nom = $this->input->post('nameCateg');
 
-    redirect('admin');
+    $this->form_validation->set_rules('nameCateg','Nom de categorie','required',[
+      'required' => 'Champ %s obligatoire'
+    ]);
+
+    if($this->form_validation->run() == true) {
+      $this->categorie->insert($nom);
+      redirect('admin');
+    }
+    else {
+      $this->load->view('templates/body', [
+        'titre' => 'Ajouter Categorie',
+        'values' => [''],
+        'component' => 'form-categ',
+        'style' => [
+          'form-categ'
+        ]
+      ]);
+    }
+
+
   }
 
   public function update($id) {
