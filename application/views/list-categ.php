@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php foreach($categories as $categorie) { ?>
         <div class="sous-categ">
             <div class="nameCateg"><?= $categorie->nom ?></div>
-            <div class="update"><?= anchor('admin/update?id='.$categorie->id.'&name='.$categorie->nom,'<button>Update</button>') ?></div>
+            <div class="update"><?= anchor('admin/form?action=update&id='.$categorie->id.'&name='.$categorie->nom,'<button>Update</button>') ?></div>
             <div class="delete"><?= anchor('admin/delete?id='.$categorie->id,'<button>Delete</button>') ?></div>
         </div>
     <?php } ?>

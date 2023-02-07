@@ -48,7 +48,7 @@ class Admin extends CI_Controller
       $this->load->view('templates/body', [
         'titre' => 'Ajouter Categorie',
         'values' => [''],
-        'component' => 'form-categ',
+        'component' => 'form-categ-add',
         'style' => [
           'form-categ'
         ]
@@ -58,9 +58,13 @@ class Admin extends CI_Controller
 
       $categorie = $this->categorie->getById($idCategory);
 
-      $this->load->view('categorie-form', [
+      $this->load->view('templates/body', [
         'titre' => 'Ajouter Categorie',
-        'values' => $categorie
+        'values' => $categorie,
+        'component' =>'form-categ-update',
+        'style' => [
+          'form-categ'
+        ]
       ]);
     }
   }
@@ -80,7 +84,7 @@ class Admin extends CI_Controller
       $this->load->view('templates/body', [
         'titre' => 'Ajouter Categorie',
         'values' => [''],
-        'component' => 'form-categ',
+        'component' => 'form-categ-add',
         'style' => [
           'form-categ'
         ]
@@ -90,9 +94,9 @@ class Admin extends CI_Controller
 
   }
 
-  public function update($id) {
+  public function update() {
     $id = $this->input->post('id');
-    $nom = $this->input->post('name');
+    $nom = $this->input->post('nameCateg');
 
     $this->categorie->update($id, $nom);
 
