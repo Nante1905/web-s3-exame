@@ -12,6 +12,14 @@ create table categorie (
     nom varchar(100)
 );
 
+create table objet (
+    id int primary key not null auto_increment,
+    titre varchar(150),
+    description text,
+    prix double,
+    id
+);  
+
 insert into utilisateur (nom,email,password) values ('Jean','jean@gmail.com','jean1'),
                                                     ('Chris','chris@gmail.com','chris1'),
                                                     ('Tony','tony@gmail.com','tony1'),
