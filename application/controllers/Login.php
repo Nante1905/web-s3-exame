@@ -38,8 +38,8 @@ class Login extends CI_Controller
     $this->load->view('login');
   }
   public function auth(){
-    $email = $this->input->post('mail');
-    $mpd = $this->input->post('pass');
+    $email = $this->input->post('email');
+    $mdp = $this->input->post('mdp');
 
     if($email=='admin'){
       if($mdp=='admin'){
