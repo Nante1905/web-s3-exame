@@ -123,12 +123,7 @@ class Mesobjets_model extends CI_Model {
     $data = $query->result();
 
     if(count($data) == 1){
-<<<<<<< HEAD
-      // TODO
-      $this->db->delete($data[0]);
-=======
       $this->db->delete('objet',array('id' => $idObjet));
->>>>>>> 3368500d77a44acdf5e14ea4ae8a29febe8c7f53
       return true;
     }
     return false;
