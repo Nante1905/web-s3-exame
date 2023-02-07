@@ -1,0 +1,53 @@
+h1{
+    text-align: center;
+}
+.add button{
+    width: 10%;
+    margin-left: 45%;
+    margin-top: 2%;
+    height: 49px;
+    background-color: #ce3e3e;
+    border: wheat;
+    color: wheat;
+    font-weight: 900;
+}
+.categ {
+    grid-template-columns: 50% 50%;
+    display: grid;
+    margin-left: 11%;
+    margin-top: 5%;
+}
+.sous-categ {
+    height: 8rem;
+    display: inline-flex;
+    border-radius: 50px;
+    border: outset;
+    width: 31rem;
+    align-items: center;
+}
+.update{
+    margin-left: 2%;
+}
+.update button{
+    width: 8rem;
+    height: 2rem;
+    border: 1px solid green;
+    color: green;
+}
+.delete{
+    margin-left: 2%;
+}
+.delete button{
+    width: 8rem;
+    height: 2rem;
+    border: 1px solid red;
+    color: red;
+}
+.nameCateg{
+    padding: 6%;
+    font-size: large;
+}
+button:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
