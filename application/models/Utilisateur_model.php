@@ -42,8 +42,13 @@ class Utilisateur_model extends CI_Model {
 
     $data = $query->result();
 
+<<<<<<< HEAD
     if(count($data) == 1){
       $this->session->set_userdata('usrsession',$data[0]->id);
+=======
+    if(count($data) >= 1){
+      $this->session->set_userdata('usrsession',$data[0]->email);
+>>>>>>> nante
       return true;
     }
 

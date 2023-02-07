@@ -1,11 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-<h1>Dynamic</h1>
+<h1><?= $titre ?></h1>
 <div class="formulaire">
-    <?= form_open('test/form'); ?>
-    <p><input type="text" name="nameCateg" id="nameCateg" value="<?= set_value('nameCateg'); ?>"></p>
+    <?= form_open('admin/add'); ?>
+    <?php $name = set_value('nameCateg') == '' ? set_value('nameCateg') : $values[0]; ?>
+    <p><input type="text" name="nameCateg" id="nameCateg" value="<?= set_value('nameCateg'); ?>" placeholder="Nom"></p>
     <input type="submit" value="Valider">
     <?= form_close(); ?>
 </div>
-<div class="error" style="color: red;"><?= validation_errors(); ?></div>
+<div class="error" style="color: red; text-align:center;"><?= validation_errors(); ?></div>

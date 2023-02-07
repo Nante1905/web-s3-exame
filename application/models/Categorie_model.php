@@ -77,6 +77,12 @@ class Categorie_model extends CI_Model {
     $this->db->delete('categorie');
   }
 
+  public function findAll() {
+    $query = $this->db->get('categorie');
+
+    return $query->result();
+  }
+
   // ------------------------------------------------------------------------
 
 }

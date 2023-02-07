@@ -12,7 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     for($i=0;$i<sizeof($style);$i++){ ?>
         <link rel="stylesheet" href="<?= base_url() . "/assets/css/".$style[$i] .'.css' ?>">
     <?php
-    } ?>
+    }
+    $title = isset($htmlTitle) ? $htmlTitle : 'Document';
+    ?>
     <title><?= $title ?></title>
 </head>
 <body>

@@ -50,10 +50,11 @@ class Login extends CI_Controller
       }
     }
     else{
-      $auth = $this->user->getClientByEmailPass($email,$mpd);
+      $auth = $this->user->getClientByEmailPass($email,$mdp);
   
+      // echo $auth;
       if($auth == true){
-        redirect('home');
+        redirect('test');
       }
       else{
         redirect('login/user');
