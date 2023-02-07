@@ -6,3 +6,8 @@ create table utilisateur (
     email varchar(150),
     password varchar(150)
 );
+
+create table categorie (
+    id int primary key not null auto_increment,
+    nom varchar(100),
+);
