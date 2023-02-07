@@ -70,7 +70,7 @@ class Mesobjets_model extends CI_Model {
     $data = $query->result();
 
     if(count($data) == 1){
-      $this->db->delete($data);
+      $this->db->delete('objet',array('id' => $idObjet));
       return true;
     }
     return false;
