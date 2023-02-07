@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="list-objets">
 		<div class="card-objet">
 			<div class="img"><img src="" alt="Image" /></div>
+			
 			<div class="card-info">
 				<div class="nom">Zavatra</div>
 				<div class="prix">1234</div>
