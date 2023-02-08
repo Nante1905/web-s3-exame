@@ -9,10 +9,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="all-img">
         <div class="descri-img">
             <div class="img">
-                <img src="img/greencar.jpg" alt="">
+                <img src="<?= base_url(); ?>assets/upload/greencar.jpg" alt="">
             </div>
             <div class="img">
-                <img src="img/interieur-voiture.jpg" alt="">
+                <img src="<?= base_url(); ?>assets/upload/interieur-voiture.jpg" alt="">
             </div>
             <div class="descri"><h2> Toutes les descriptions</h2></div>
         </div>

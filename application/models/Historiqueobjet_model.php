@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  *
- * Model ObjetPhoto_model
+ * Model Historiqueobjet_model
  *
  * This Model for ...
  * 
@@ -16,10 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  */
 
-class ObjetPhoto_model extends CI_Model {
-
-  public $idobjet;
-  public $url;
+class Historiqueobjet_model extends CI_Model {
 
   // ------------------------------------------------------------------------
 
@@ -37,29 +34,20 @@ class ObjetPhoto_model extends CI_Model {
     // 
   }
 
-  public function insert($idobjet, $url) {
-    $data = [
-      'idobjet' => $idobjet,
-      'url' => $url
-    ];
-    $this->db->insert('objetphoto', $data);
+  public function insert($ancienutilisateur,$objet_id,$objet_idutilisateur){
+    $data = array(
+      'dateproposition' => 'now()',
+      'ancienutilisateur' => $ancienutilisateur,
+      'objet_id' => $objet_id,
+      'objet_idutilisateur'=> $objet_idutilisateur
+    );
+
+    $this->db->insert('historiqueobjet',$data);
   }
-
-  public function findAllById($id){
-    $this->db->where([
-      'idobjet' => $id
-    ]);
-    $query = $this->db->get('objetphoto');
-
-    $data = $query->result();
-    return $data;
-
-  }
-  
 
   // ------------------------------------------------------------------------
 
 }
 
-/* End of file ObjetPhoto_model.php */
-/* Location: ./application/models/ObjetPhoto_model.php */
+/* End of file Historiqueobjet_model.php */
+/* Location: ./application/models/Historiqueobjet_model.php */

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  *
- * Model ObjetPhoto_model
+ * Model Proposition_model
  *
  * This Model for ...
  * 
@@ -16,10 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  */
 
-class ObjetPhoto_model extends CI_Model {
-
-  public $idobjet;
-  public $url;
+class Proposition_model extends CI_Model {
 
   // ------------------------------------------------------------------------
 
@@ -37,29 +34,35 @@ class ObjetPhoto_model extends CI_Model {
     // 
   }
 
-  public function insert($idobjet, $url) {
+  public function insert($idobjetask,$idutilisateurask,$idobjetgive,$idutilisateurgive,$status){
+    $data = array(
+      'idobjetask' => $idobjetask,
+      'idutilisateurask' => $idutilisateurask,
+      'idobjetgive' => $idobjetgive,
+      'idutilisateurgive'=> $idutilisateurgive,
+      'dateproposition' => 'now()',
+      'status'=>$status
+
+    );
+    $this->db->insert('proposition',$data);
+  }
+
+  public function updateStatus($idobjetask,$idutilisateurask,$status){
     $data = [
-      'idobjet' => $idobjet,
-      'url' => $url
+      'status' => $status
     ];
-    $this->db->insert('objetphoto', $data);
-  }
 
-  public function findAllById($id){
     $this->db->where([
-      'idobjet' => $id
+      'idobjetask' => $idobjetask,
+      'idutilisateurask' => $idutilisateurask
     ]);
-    $query = $this->db->get('objetphoto');
 
-    $data = $query->result();
-    return $data;
-
+    $this->db->update('proposition', $data);
   }
-  
 
   // ------------------------------------------------------------------------
 
 }
 
-/* End of file ObjetPhoto_model.php */
-/* Location: ./application/models/ObjetPhoto_model.php */
+/* End of file Proposition_model.php */
+/* Location: ./application/models/Proposition_model.php */
