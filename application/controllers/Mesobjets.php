@@ -29,6 +29,7 @@ class Mesobjets extends CI_Controller
     parent::__construct();
     $this->load->model('Mesobjets_model','objet',true);
     $this->load->model('ObjetPhoto_model', 'objetPhoto', true);
+    $this->load->model('Categorie_model', 'categorie', true);
     $this->errorMessages = [
       'required' => 'Le champ %s est obligatoire'
     ]; 
@@ -53,10 +54,11 @@ class Mesobjets extends CI_Controller
   public function addForm(){
     $props = [
       'component' => 'form-ajout-objet',
-      'title' => 'Nouveau objet'
+      'title' => 'Nouveau objet',
+      'categories' => $this->categorie->findAll()
     ];
     // $this->load->view('templates/body',$props);
-    $this->load->view('add-mes-objets');
+    $this->load->view('add-mes-objets', $props);
   }
   
   public function updateForm(){
@@ -80,6 +82,7 @@ class Mesobjets extends CI_Controller
     $titre = $this->input->post('titre');
     $description = $this->input->post('description');
     $prix = $this->input->post('prix');
+    $idCategorie = $this->input->post('idcategorie');
     $idUser = $this->idUser;
 
     $this->form_validation->set_rules('titre','Titre','required',$this->errorMessages);
@@ -90,8 +93,7 @@ class Mesobjets extends CI_Controller
       $this->load->view('form-ajout-objet');
     }
     else{
-      var_dump($_FILES['photos']);
-      $this->objet->insert($titre,$description,$prix,$idUser,$_FILES['photos']);
+      $this->objet->insert($titre,$description,$prix,$idUser,$_FILES['photos'], $idCategorie);
       redirect('mesobjets/addForm');
     }
 
