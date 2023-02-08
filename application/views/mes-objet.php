@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </section>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <div class="footer">
-        <div class="nom">
+        <div class="footer-nom">
         <p><Label> Nom et Prenom</Label></p>
             <p>ANDRIANISOA Hariniaina Grace</p>
             <p>ANDRIAMAZAORO Minohary Nantenaina</p>

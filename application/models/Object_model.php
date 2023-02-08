@@ -59,6 +59,22 @@ class Object_model extends CI_Model {
     return $data;
   }
 
+  public function getAllExceptUsrByCategAndTitre($categorie, $titre){
+    $this->db->select(['objet.*', 'objetphoto.url']);
+    $this->db->join('objetphoto', 'objet.id = objetphoto.idobjet');
+    $this->db->like('titre', $titre);
+    $this->db->where([
+      'idutilisateur !=' => $this->session->userdata('usrsession'),
+      'idcategorie' => $categorie,
+    ]);
+    $this->db->group_by("objet.id");
+
+    $query = $this->db->get('objet');
+
+    $data=$query->result();
+    return $data;
+  }
+
   public function getObjectById($id) {
     $this->db->select('*');
     $this->db->where(['id'=>$id]);

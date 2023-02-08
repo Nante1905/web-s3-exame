@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 </html>
 <div class="footer">
-        <div class="nom">
+        <div class="footer-nom">
         <p><Label> Nom et Prenom</Label></p>
             <p>ANDRIANISOA Hariniaina Grace</p>
             <p>ANDRIAMAZAORO Minohary Nantenaina</p>

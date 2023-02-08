@@ -73,22 +73,37 @@ class Objet extends CI_Controller
     $this->load->view('templates/body',$data_detail);
   }
 
-  public function searchobject()
-  {
-    $search=$this->input->post('search');
-    $categorie_name=$this->input->post('categorie');
+  // public function searchobject()
+  // {
+  //   $search=$this->input->post('search');
+  //   $categorie_name=$this->input->post('categorie');
     
-    $data_searched = [
-      'objet' => $this->objet->getObjectSearched($search,$categorie_name)
-    ];
-    $this->props = [
-      'component' => 'recherche-objet',
-      'style' => ['list-objet'],
-      'title' => 'Recherche objet'
-    ];
-    $data_found = array_merge($data_searched, $this->props);
+  //   $data_searched = [
+  //     'objet' => $this->objet->getObjectSearched($search,$categorie_name)
+  //   ];
+  //   $this->props = [
+  //     'component' => 'recherche-objet',
+  //     'style' => ['list-objet'],
+  //     'title' => 'Recherche objet'
+  //   ];
+  //   $data_found = array_merge($data_searched, $this->props);
 
-    $this->load->view('templates/body',$data_found);
+  //   $this->load->view('templates/body',$data_found);
+  // }
+
+  public function result()
+  {
+
+    $categorie = $this->input->post('idcategorie');
+    $titre = $this->input->post('titre');
+    $data= [
+      'objets' => $this->objet->getAllExceptUsrByCategAndTitre($categorie, $titre),
+      'categorie' => $this->categorie->findAll()
+    ];
+
+    $dataAll = array_merge($data, $this->props);
+
+    $this->load->view('templates/body',$dataAll);
   }
 
 }
