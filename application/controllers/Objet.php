@@ -72,13 +72,13 @@ class Objet extends CI_Controller
     $search=$this->input->post('mots');
     $categorie_name=$this->input->post('categorie');
     $categorie_data= [
-      'categorie' => $this->categorie->findAll();
+      'categorie' => $this->categorie->findAll()
     ];
 
     foreach ($categorie_data as $row_data){
       if ($row_data->nom==$categorie_name) {
         $data_searched= [
-          'objet' => $this->objet->getObjectSearched($search,$row_data->id);
+          'objet' => $this->objet->getObjectSearched($search,$row_data->id)
         ];
       }
     }
