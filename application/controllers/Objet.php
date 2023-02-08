@@ -21,6 +21,10 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Objet extends CI_Controller
 {
 
+  public $id;
+  public $descri;
+  public $prix ;
+  public $idUser;
   public $props;
   
   public function __construct()
@@ -45,6 +49,22 @@ class Objet extends CI_Controller
     $this->load->view('templates/body',$dataAll);
   }
 
+  public function detail($id)
+  {
+    $objet_data= [
+      'objets' => $this->objet->getObjectById($id)
+    ];
+    //ty tsy haiko raha mety an izao fa nataoko an io aloha 
+    //sody afaka ampiana getter setters? le props? 
+    $this->props = [
+      'component' => 'detail-objet',
+      'style' => ['detail-objet'],
+      'title' => 'Details objet'
+    ];
+    $data_detail = array_merge($objet_data, $this->props);
+
+    $this->load->view('templates/body',$data_detail);
+  }
 }
 
 
