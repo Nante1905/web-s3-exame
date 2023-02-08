@@ -33,7 +33,10 @@ class Login extends CI_Controller
     ]);
   }
   public function user(){
-    $this->load->view('login');
+    $this->load->view('login', [
+      'email' => 'chris@gmail.com',
+      'pass' => 'chris1'
+    ]);
   }
 
   public function index()
