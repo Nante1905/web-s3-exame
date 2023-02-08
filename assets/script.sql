@@ -14,17 +14,19 @@ create table categorie (
 
 create table objet (
     id int primary key not null auto_increment,
+    idutilisateur int,
+    idcategorie int,
     titre varchar(150),
     description text,
     prix double,
-    idutilisateur int,
-    foreign key (idutilisateur) references utilisateur(id)
+    foreign key (idutilisateur) references utilisateur(id),
+    foreign key (idcategorie) references categorie(id)
 );
 
 create table objetphoto (
     id int primary key not null auto_increment,
-    url varchar(250),
     idobjet int,
+    url varchar(250),
     foreign key (idobjet) references objet(id)
 );
 
@@ -42,10 +44,9 @@ create table proposition (
 );
 
 create table historiqueobjet (
-    dateheurechange datetime,
     idobjet int,
     ancienutilisateur int,
-    objet_idutilisateur int,
+    dateheurechange datetime,
     foreign key (idobjet) references objet(id),
     foreign key (ancienutilisateur) references utilisateur(id),
     foreign key (objet_idutilisateur) references utilisateur(id)
@@ -62,11 +63,11 @@ insert into categorie (nom) values ('Vetement'),
                                     ('Construction'),
                                     ('Auto-moto');
 
-insert into objet (titre,description,prix,idutilisateur) values ('Voiture','En bon etat',200000000,2)
+insert into objet (titre,description,prix,idutilisateur) values ('Voiture','En bon etat',200000000,2),
                                                                 ('Robe','Usee',1500,1),
                                                                 ('Imprimante','Usee',35000,3),
                                                                 ('Machine a laver','Neuve',6300000,4),
-                                                                ('maison','luxueuse et spacieuse',150000000,5),
+                                                                ('maison','luxueuse et spacieuse',150000000,1),
                                                                 ('ordinateur','neuf',6000000,2);
 
 
