@@ -20,10 +20,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Mesobjets extends CI_Controller
 {
+
+  public $errorMessages;
+  public $idUser;
+
   public function __construct()
   {
     parent::__construct();
     $this->load->model('Mesobjets_model','objet',true);
+    $this->load->model('ObjetPhoto_model', 'objetPhoto', true);
     $this->errorMessages = [
       'required' => 'Le champ %s est obligatoire'
     ]; 
@@ -37,7 +42,10 @@ class Mesobjets extends CI_Controller
       'title' => 'Liste de mes objets',
       'style' =>['Objet-List','Objet-Boxed']
     ];
-    $this->load->view('templates/body',$props);
+    // $this->load->view('templates/body',$props);
+    $this->load->view('mes-objet', [
+      'objets' => $this->objet->findAllById($this->idUser)
+    ]);
   }
 
   public function addForm(){
@@ -45,7 +53,8 @@ class Mesobjets extends CI_Controller
       'component' => 'form-ajout-objet',
       'title' => 'Nouveau objet'
     ];
-    $this->load->view('templates/body',$props);
+    // $this->load->view('templates/body',$props);
+    $this->load->view('add-mes-objets');
   }
   
   public function updateForm(){
@@ -53,7 +62,21 @@ class Mesobjets extends CI_Controller
       'component' => 'form-update-objet',
       'title' => 'Modification objet'
     ];
-    $this->load->view('templates/body',$props);
+    // $this->load->view('templates/body',$props);
+
+    $titre = $this->input->get('titre');
+    $prix = $this->input->get('prix');
+    $descri = $this->input->get('description');
+    $id = $this->input->get('id');
+
+    $data = [
+      'titre' => $titre,
+      'prix' => $prix,
+      'descri' => $descri,
+      'id' => $id
+    ];
+
+    $this->load->view('update-mes-objets', $data);
   }
 
   public function add(){
@@ -70,8 +93,8 @@ class Mesobjets extends CI_Controller
       $this->load->view('form-ajout-objet');
     }
     else{
-      $this->objet->insert($titre,$description,$prix,$id);
-      redirect('mesobjets/addForm');
+      $this->objet->insert($titre,$description,$prix,$idUser,$_FILES['photos']);
+      // redirect('mesobjets/addForm');
     }
 
   }
@@ -97,20 +120,15 @@ class Mesobjets extends CI_Controller
   }
 
   public function delete(){
-    $idObjet = $this->input->post('id');
+    $idObjet = $this->input->get('id');
     $idutilisateur = $this->idUser;
 
-    if($this->form_validation->run() == false){
-      $this->load->view('form-update-objet');
+    $verif = $this->objet->delete($idObjet,$idutilisateur);
+    if($verif == true){
+      redirect('mesobjets/index');
     }
     else{
-      $verif = $this->objet->delete($idObjet,$idutilisateur);
-      if($verif == true){
-        redirect('mesobjets/index');
-      }
-      else{
-        redirect('');
-      }
+      redirect('');
     }
   }
 
