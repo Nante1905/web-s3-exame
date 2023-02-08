@@ -3,7 +3,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="content">
 	<?php $this->load->view('templates/nav'); ?>
-	
+	<div class="search">
+		<?= form_open('') ?>
+			<input type="text" name="search" id="search">
+			<select name="" id="">
+				<option value="">Categ1</option>
+				<option value="">Categ1</option>
+				<option value="">Categ1</option>
+				<option value="">Categ1</option>
+			</select>
+			<input type="submit" value="Rechercher">
+		<?= form_close(); ?>
+	</div>
 	<div class="list-objets">
 		<?php foreach($objets as $objet) { ?>
 			<div class="card-objet">
