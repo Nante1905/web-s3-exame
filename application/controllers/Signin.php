@@ -46,8 +46,8 @@ class Signin extends CI_Controller
     $this->form_validation->set_rules('mail','Email','required',$this->errorMessages);
     $this->form_validation->set_rules('pass','Mot de passe','required',$this->errorMessages);
 
-    if($this->form_validation->run() == false){
-      $this->load->view('inscripion');
+    if($this->form_validation->run() == false) {
+      $this->load->view('inscription');
     }
     else{
       $this->user->insert($nom,$email,$password);
