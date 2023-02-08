@@ -1,0 +1,44 @@
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 5rem;
+    margin-top: 1rem;
+}
+
+
+.card-objet img {
+    width: inherit;
+    height: inherit;
+}
+
+.card-objet .img {
+    height: 200px;
+    margin-bottom: 2rem;
+}
+
+
+.card-objet .nom {
+    font-size: 1.25rem;
+}
+
+.card-objet {
+    border: 1px solid black;
+    width: 60%;
+    margin-bottom: 2rem;
+    transition: all .2s ease-in-out;
+}
+
+.card-objet:hover {
+    transform: scale(1.03);
+}
+
+.card-info {
+    padding: 1rem;
+}
+
+.list-objets {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    justify-items: center;
+}
