@@ -39,12 +39,13 @@ class Proposition_model extends CI_Model {
   }
 
   public function insert($idobjetask,$idutilisateurask,$idobjetgive,$idutilisateurgive,$status){
+    $now = date('Y-m-d H:i:s');
     $data = array(
       'idobjetmagataka' => $idobjetask,
       'idutilisateurmangataka' => $idutilisateurask,
       'idobjetangatahana' => $idobjetgive,
       'idutilisateurangatahana'=> $idutilisateurgive,
-      'dateproposition' => 'now()',
+      'dateproposition' => $now,
       'status'=>$status
 
     );

@@ -35,7 +35,7 @@ create table proposition (
     idutilisateurmangataka int,
     idobjetangatahana int,
     idutilisateurangatahana int,
-    dateproposition date,
+    dateproposition datetime,
     status int,
     foreign key (idobjetmagataka) references objet(id),
     foreign key (idutilisateurmangataka) references utilisateur(id),

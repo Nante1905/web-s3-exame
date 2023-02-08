@@ -63,7 +63,8 @@ class Objet extends CI_Controller
     $this->props = [
       'component' => 'detail-objet',
       'style' => ['detail-objet'],
-      'title' => 'Details objet'
+      'title' => 'Details objet',
+      'idobjetmagataka' => $id
     ];
     $data_detail = array_merge($objet_data, $this->props);
 
