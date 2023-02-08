@@ -62,11 +62,11 @@ insert into categorie (nom) values ('Vetement'),
                                     ('Construction'),
                                     ('Auto-moto');
 
-insert into objet (titre,description,prix,idutilisateur) values ('Voiture','En bon etat',200000000,2)
+insert into objet (titre,description,prix,idutilisateur) values ('Voiture','En bon etat',200000000,2),
                                                                 ('Robe','Usee',1500,1),
                                                                 ('Imprimante','Usee',35000,3),
                                                                 ('Machine a laver','Neuve',6300000,4),
-                                                                ('maison','luxueuse et spacieuse',150000000,5),
+                                                                ('maison','luxueuse et spacieuse',150000000,4),
                                                                 ('ordinateur','neuf',6000000,2);
 
 

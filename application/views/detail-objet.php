@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div class="proposition">
             <h3>Mes objets</h3>
-            <?= form_open(''); ?>
+            <?= form_open('proposition/proposer'); ?>
                 <select name="idobjetgive" id="">
                     <?php foreach($mesObjets as $mesObjet) { ?>
                         <option value="<?= $mesObjet->id ?>"><?= $mesObjet->titre ?></option>
