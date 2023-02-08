@@ -37,6 +37,7 @@ class Mesobjets extends CI_Controller
 
   public function index()
   {
+    $idobjet = $this->objet->findAllById($this->idUser);
     $props = [
       'component' => 'mes-objet',
       'title' => 'Liste de mes objets',

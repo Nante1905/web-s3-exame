@@ -45,6 +45,8 @@ class ObjetPhoto_model extends CI_Model {
     $this->db->insert('objetphoto', $data);
   }
 
+  
+
   // ------------------------------------------------------------------------
 
 }
