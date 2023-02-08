@@ -18,7 +18,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  */
 
-class Mesobjets extends CI_Controller
+ require APPPATH.'controllers\SessionSecure.php';
+
+class Mesobjets extends SessionSecure
 {
 
   public $errorMessages;

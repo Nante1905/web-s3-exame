@@ -18,7 +18,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  */
 
-class Objet extends CI_Controller
+ require APPPATH.'controllers\SessionSecure.php';
+ 
+class Objet extends SessionSecure
 {
 
   public $idUser;

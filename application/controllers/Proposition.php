@@ -18,7 +18,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  */
 
-class Proposition extends CI_Controller
+ require APPPATH.'controllers\SessionSecure.php';
+
+class Proposition extends SessionSecure
 {
   public $idUser;
   public function __construct()
