@@ -42,14 +42,12 @@ create table proposition (
 );
 
 create table historiqueobjet (
-    idobjet int,
     dateheurechange datetime,
+    idobjet int,
     ancienutilisateur int,
-    objet_id int,
     objet_idutilisateur int,
     foreign key (idobjet) references objet(id),
     foreign key (ancienutilisateur) references utilisateur(id),
-    foreign key (objet_id) references objet(id),
     foreign key (objet_idutilisateur) references utilisateur(id)
 );
 
@@ -64,7 +62,7 @@ insert into categorie (nom) values ('Vetement'),
                                     ('Construction'),
                                     ('Auto-moto');
 
-insert into objet (titre,description,prix,idutilisateur) values ('Voiture','En bon etat',200000000,2),
+insert into objet (titre,description,prix,idutilisateur) values ('Voiture','En bon etat',200000000,2)
                                                                 ('Robe','Usee',1500,1),
                                                                 ('Imprimante','Usee',35000,3),
                                                                 ('Machine a laver','Neuve',6300000,4),
@@ -81,5 +79,3 @@ insert into objetphoto (url,idobjet) values ('blackhouse',5),
                                             ('salledebain',5),
                                             ('chambre',5),
                                             ('salon',5);
-
-                                                            
