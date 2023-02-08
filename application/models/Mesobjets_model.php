@@ -132,6 +132,16 @@ class Mesobjets_model extends CI_Model {
 
   }
 
+  public function findByIdObjet($idobjet){
+    $this->db->where([
+      'id =' => $idobjet
+    ]);
+
+    $query = $this->db->get('objet');
+
+    return $query->result();
+  }
+
 
   // ------------------------------------------------------------------------
 
