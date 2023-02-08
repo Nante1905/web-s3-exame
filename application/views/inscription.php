@@ -19,6 +19,13 @@
                 <div class="mb-3"><input class="form-control" type="text" name="nom" placeholder="Name"></div>
                 <div class="mb-3"><input class="form-control" type="text" name="mail" placeholder="Email"></div>
                 <div class="mb-3"><input class="form-control" type="password" name="pass" placeholder="Password"></div>
+                <div class="mb-3">
+                    <select name="" value="1" id="" class="form-control">
+                        <object data="" type="">Vetement</object>
+                        <object data="" type="">Auto-moto</object>
+                        <object data="" type="">Construction</object>                        
+                    </select> 
+                </div>
                 <div class="mb-3"></div>
                 <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Sign Up</button></div><a class="already" href="#">You already have an account? Login here.</a>
             </form>
