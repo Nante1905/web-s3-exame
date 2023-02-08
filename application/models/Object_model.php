@@ -37,6 +37,16 @@ class Object_model extends CI_Model {
   /*
   tous les object sauf les siennes
   */
+
+  public function changeOwner($id, $newOwner) {
+    $this->db->where([
+      'id' => $id
+    ]);
+    $this->db->update('objet', [
+      'idutilisateur' => $newOwner
+    ]);
+  }
+
   public function getAllExceptUsr(){
     $this->db->select(['objet.*', 'objetphoto.url']);
     $this->db->join('objetphoto', 'objet.id = objetphoto.idobjet');

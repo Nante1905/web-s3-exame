@@ -22,12 +22,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="proposition">
             <h3>Mes objets</h3>
             <?= form_open('proposition/proposer'); ?>
-                <select name="idobjetgive" id="">
+                <select name="idobjetmangataka" id="">
                     <?php foreach($mesObjets as $mesObjet) { ?>
                         <option value="<?= $mesObjet->id ?>"><?= $mesObjet->titre ?></option>
                     <?php } ?>
                 </select>
-                <input type="hidden" name="idobjetmagataka" value="<?= $idobjetmagataka; ?>">
+                <input type="hidden" name="idobjetangatahana" value="<?= $objetDetail->id; ?>">
                 <input type="hidden" name=" idutilisateurangatahana" value="<?= $objetDetail->idutilisateur; ?>">
                 <p><input type="submit" value="Proposer un echange"></p>
             <?= form_close(); ?>
