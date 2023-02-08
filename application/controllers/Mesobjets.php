@@ -47,7 +47,6 @@ class Mesobjets extends CI_Controller
     // $this->load->view('templates/body',$props);
     $this->load->view('mes-objet', [
       'objets' => $this->objet->findAllById($this->idUser)
-      // 'photo' => $this->objetPhoto->findAllByid(2)
     ]);
   }
 
@@ -61,25 +60,20 @@ class Mesobjets extends CI_Controller
   }
   
   public function updateForm(){
+    $iduser = $this->idUser;
     $props = [
       'component' => 'form-update-objet',
       'title' => 'Modification objet'
     ];
     // $this->load->view('templates/body',$props);
-
-    $titre = $this->input->get('titre');
-    $prix = $this->input->get('prix');
-    $descri = $this->input->get('description');
+    
     $id = $this->input->get('id');
+    $objet = $this->objet->findByIdObjet($id);
 
-    $data = [
-      'titre' => $titre,
-      'prix' => $prix,
-      'descri' => $descri,
-      'id' => $id
-    ];
 
-    $this->load->view('update-mes-objets', $data);
+    $this->load->view('update-mes-objets', [
+      'objet' => $this->objet->findByIdObjet($id)
+    ]);
   }
 
   public function add(){
@@ -110,6 +104,7 @@ class Mesobjets extends CI_Controller
     $prix = $this->input->post('prix');
     $idUser = $this->idUser;
 
+
     $this->form_validation->set_rules('titre','Titre','required',$this->errorMessages);
     $this->form_validation->set_rules('description','Description','required',$this->errorMessages);
     $this->form_validation->set_rules('prix','Prix','required',$this->errorMessages);
@@ -119,7 +114,7 @@ class Mesobjets extends CI_Controller
     }
     else{
       $this->objet->update($idObjet,$titre,$description,$prix,$idUser);
-      redirect('mesobjets/updateForm');
+      redirect('mesobjets/index');
     }
   }
 

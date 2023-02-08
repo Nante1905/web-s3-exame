@@ -3,9 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="content">
 	<div class="nav">
-		<div class="nav-item">Home</div>
-		<div class="nav-item">Mes Objets</div>
-		<div class="nav-item">Deconnexion</div>
+		<div class="nav-item"><?= anchor('objet/index','Home') ?></div>
+		<div class="nav-item"><?= anchor('mesobjets/index','Mes Objets') ?></div>
+		<div class="nav-item"><?= anchor('login/disconnect','Deconnexion') ?></div>
 	</div>
 	<div class="list-objets">
 		<?php foreach($objets as $objet) { ?>
