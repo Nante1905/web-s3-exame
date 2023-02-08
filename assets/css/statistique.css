@@ -1,0 +1,49 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.container {
+    position: relative;
+    margin-top: 10%;
+    width: 33.33%;
+    margin-left: 33.33%;
+}
+
+.h2{
+    margin-top: 10px;
+}
+
+.stat{
+    
+    height: 227px;
+    position: relative;
+    box-shadow: 1px 1px 4px;
+}
+
+.stat div{
+    display: inline-block;
+}
+
+.mots-container{
+    width: 100%;
+}
+
+.mots{
+    justify-items: center;
+    width: 33%;
+    margin-left: 16%;
+}
+
+#saraka{
+    border-right: solid 1px rgb(102, 101, 101);
+}
+
+.chiffre{
+    justify-items: center;
+    width: 33%;
+    margin-left: 16%;
+}
+
+.container-nbr{
+    width: 100%;
+}
