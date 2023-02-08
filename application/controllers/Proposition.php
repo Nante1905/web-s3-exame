@@ -33,6 +33,14 @@ class Proposition extends CI_Controller
     $this->load->view('templates/body');
   }
 
+  public function list() {
+    $this->load->view('templates/body', [
+      'htmlTitle' => 'List des propositions',
+      'style' => ['list-proposition'],
+      'component' => 'list-proposition'
+    ]);
+  }
+
   public function proposer(){
     $idobjetask = $this->input->post('idobjetask');
     $idutilisateurask = $this->input->post('idutilisateurask');

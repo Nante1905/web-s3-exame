@@ -1,0 +1,44 @@
+.list-prop {
+    width: 100%;
+}
+.prop-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    padding: 1rem;
+    box-shadow: 1px 2px 7px;
+    background-color: rgb(238, 250, 255);
+    margin: auto;
+    margin-bottom: 3rem;
+}
+.prop-item {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.action {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    justify-content: space-between;
+    width: 30%;
+}
+.action button {
+    width: 6rem;
+    height: 1.75rem;
+    background-color: #ffffff;
+    border-style: solid;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+.action button:hover {
+    transform: scale(1.05);
+}
+.accept-btn {
+    border-color: green;
+    color: green;
+}
+.refuse-btn {
+    border-color: red;
+    color: red;
+}

@@ -29,16 +29,16 @@ create table objetphoto (
 );
 
 create table proposition (
-    idobjetask int,
-    idutilisateurask int,
-    idobjetgive int,
-    idutilisateurgive int,
+    idobjetmagataka int,
+    idutilisateurmangataka int,
+    idobjetangatahana int,
+    idutilisateurangatahana int,
     dateproposition date,
     status int,
-    foreign key (idobjetask) references objet(id),
-    foreign key (idutilisateurask) references utilisateur(id),
-    foreign key (idobjetgive) references objet(id),
-    foreign key (idutilisateurgive) references utilisateur(id)
+    foreign key (idobjetmagataka) references objet(id),
+    foreign key (idutilisateurmangataka) references utilisateur(id),
+    foreign key (idobjetangatahana) references objet(id),
+    foreign key (idutilisateurangatahana) references utilisateur(id)
 );
 
 create table historiqueobjet (

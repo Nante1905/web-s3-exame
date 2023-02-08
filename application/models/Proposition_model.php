@@ -34,6 +34,10 @@ class Proposition_model extends CI_Model {
     // 
   }
 
+  public function findAllByIdUserAsk() {
+    # code...
+  }
+
   public function insert($idobjetask,$idutilisateurask,$idobjetgive,$idutilisateurgive,$status){
     $data = array(
       'idobjetask' => $idobjetask,
