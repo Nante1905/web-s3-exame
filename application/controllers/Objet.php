@@ -75,23 +75,15 @@ class Objet extends CI_Controller
 
   public function searchobject()
   {
-    $search=$this->input->post('mots');
+    $search=$this->input->post('search');
     $categorie_name=$this->input->post('categorie');
-    $categorie_data= [
-      'categorie' => $this->categorie->findAll()
+    
+    $data_searched = [
+      'objet' => $this->objet->getObjectSearched($search,$categorie_name)
     ];
-
-    foreach ($categorie_data as $row_data){
-      if ($row_data->nom==$categorie_name) {
-        $data_searched= [
-          'objet' => $this->objet->getObjectSearched($search,$row_data->id)
-        ];
-      }
-    }
-
     $this->props = [
       'component' => 'recherche-objet',
-      'style' => ['recherche-objet'],
+      'style' => ['list-objet'],
       'title' => 'Recherche objet'
     ];
     $data_found = array_merge($data_searched, $this->props);
