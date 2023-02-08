@@ -71,7 +71,7 @@ insert into objet (titre,description,prix,idutilisateur) values ('Voiture','En b
 
 
 insert into objetphoto (url,idobjet) values ('blackhouse',5),
-                                            ('mackbook',6),
+                                            ('mackbook',2),
                                             ('robefleuri',2),
                                             ('greencar',1),
                                             ('interieur-voiture',1),

@@ -33,17 +33,21 @@ class Mesobjets extends CI_Controller
       'required' => 'Le champ %s est obligatoire'
     ]; 
     $this->idUser = $this->session->userdata('usrsession');
+    // $this->idUser = 2;
   }
 
   public function index()
   {
+    $idobjet = $this->objet->findAllById($this->idUser);
     $props = [
-      'component' => 'list-mes-objets',
-      'title' => 'Liste de mes objets'
+      'component' => 'mes-objet',
+      'title' => 'Liste de mes objets',
+      'style' =>['Objet-List','Objet-Boxed']
     ];
     // $this->load->view('templates/body',$props);
     $this->load->view('mes-objet', [
       'objets' => $this->objet->findAllById($this->idUser)
+      // 'photo' => $this->objetPhoto->findAllByid(2)
     ]);
   }
 
@@ -92,6 +96,7 @@ class Mesobjets extends CI_Controller
       $this->load->view('form-ajout-objet');
     }
     else{
+      var_dump($_FILES['photos']);
       $this->objet->insert($titre,$description,$prix,$idUser,$_FILES['photos']);
       redirect('mesobjets/addForm');
     }
@@ -127,7 +132,7 @@ class Mesobjets extends CI_Controller
       redirect('mesobjets/index');
     }
     else{
-      redirect('');
+      redirect('mesobjets/index');
     }
   }
 

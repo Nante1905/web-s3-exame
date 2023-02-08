@@ -29,7 +29,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <p class="description"><label for="">Prix :</label><?= $objet->prix ?></p>
                         <p class="description"><label for="">Description :</label> <?= $objet->description ?></p>
                         <p></p>
-                        <div></div>
                         <!-- TODO -->
                         <div></div><span><?= anchor('mesobjets/updateForm', '<button class="btn-primary" type="button">Update</button>') ?></span><span><?= anchor('mesobjets/delete?id='.$objet->id, '<button class="btn-primary" type="button">Delete</button>') ?></span>
                     </div>

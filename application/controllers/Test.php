@@ -56,6 +56,15 @@ class Test extends CI_Controller
     $this->load->view('templates/body',$props);
   }
 
+  public function myobject(){
+    $props = [
+      'component' => 'mes-objet',
+      'title' => 'Liste de mes objets',
+      'style' =>['Objet-List','Objet-Boxed']
+    ];
+    $this->load->view('templates/body',$props);
+  }
+
 }
 
 

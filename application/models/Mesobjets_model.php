@@ -63,6 +63,7 @@ class Mesobjets_model extends CI_Model {
 
   public function uploadPics($idObjet, $imgs) {
     $filesLength = count($imgs['name']);
+    var_dump($filesLength);
     for ($i=0; $i < $filesLength; $i++) { 
       $filename = '';
 
@@ -73,7 +74,7 @@ class Mesobjets_model extends CI_Model {
       $_FILES['img']['error'] = $imgs['error'][$i];
       $_FILES['img']['size'] = $imgs['size'][$i];
 
-      $config['upload_path'] = './assets/uploads/';
+      $config['upload_path'] = './assets/upload/';
       $config['allowed_types'] = 'jpg|jpeg|png|gif';
       $config['max_size'] = '20000';
 
@@ -85,6 +86,7 @@ class Mesobjets_model extends CI_Model {
 
       if($this->upload->do_upload('img')){
         $uploadData = $this->upload->data();
+        $filename = $uploadData['file_name'];
 
         $this->objetPhoto->insert($idObjet, $filename);
 
