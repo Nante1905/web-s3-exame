@@ -18,8 +18,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  */
 
- require APPPATH.'controllers\SessionSecure.php';
- 
+ require APPPATH.'controllers/SessionSecure.php';
+
 class Admin extends SessionSecure
 {
     
