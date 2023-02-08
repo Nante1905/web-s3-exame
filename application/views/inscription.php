@@ -20,7 +20,7 @@
                 <div class="mb-3"><input class="form-control" type="text" name="mail" placeholder="Email"></div>
                 <div class="mb-3"><input class="form-control" type="password" name="pass" placeholder="Password"></div>
                 <div class="mb-3"></div>
-                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Sign Up</button></div><a class="already" href="#">You already have an account? Login here.</a>
+                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit">Sign Up</button></div><?= anchor('/', 'You already have an account? Login here.') ?>
             </form>
             <?= validation_errors() ?>
         </div>

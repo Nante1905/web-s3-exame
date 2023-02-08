@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <div class="row articles">
                 <?php foreach($objets as $objet) { ?>
-                    <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="assets/img/desk.jpg"></a>
+                    <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" src="<?= base_url() ?>assets/upload/<?= $objet->url.'.jpg' ?>"></a>
                         <h3 class="name"><?= $objet->titre ?></h3>
                         <p class="description"><label for="">Prix :</label><?= $objet->prix ?></p>
                         <p class="description"><label for="">Description :</label> <?= $objet->description ?></p>

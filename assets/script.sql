@@ -68,11 +68,7 @@ insert into objet (titre,description,prix,idutilisateur) values ('Voiture','En b
                                                                 ('Robe','Usee',1500,1),
                                                                 ('Imprimante','Usee',35000,3),
                                                                 ('Machine a laver','Neuve',6300000,4),
-<<<<<<< HEAD
                                                                 ('maison','luxueuse et spacieuse',150000000,1),
-=======
-                                                                ('maison','luxueuse et spacieuse',150000000,4),
->>>>>>> 3d5cde2eaecd08f18a344a6c3af89779febde8ac
                                                                 ('ordinateur','neuf',6000000,2);
 
 

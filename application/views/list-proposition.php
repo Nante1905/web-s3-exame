@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <div class="action">
                     <div class="accept"><?= anchor('proposition/accepter?id='.$propositions[$i]->id,'<button class="accept-btn">Accepter</button>'); ?></div>
-                    <div class="refuse"><?= anchor('proposition/refuser','<button class="refuse-btn">Refuser</button>'); ?></div>
+                    <div class="refuse"><?= anchor('proposition/refuser?id='.$propositions[$i]->id,'<button class="refuse-btn">Refuser</button>'); ?></div>
                 </div>
             </div>
         <?php } ?>
