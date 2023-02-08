@@ -35,22 +35,33 @@ class Mesobjets_model extends CI_Model {
   }
 
   public function findAllById($id) {
-    $this->db->where([
-      'idutilisateur =' => $id
-    ]);
+    // $this->db->where([
+    //   'idutilisateur =' => $id
+    // ]);
+
+    // $query = $this->db->get('objet');
+
+    // return $query->result();
+
+    $this->db->select(['objet.*', 'objetphoto.url']);
+    $this->db->join('objetphoto', 'objet.id = objetphoto.idobjet');
+    $this->db->where(['idutilisateur' => $id]);
+    $this->db->group_by("objet.id");
 
     $query = $this->db->get('objet');
 
-    return $query->result();
+    $data=$query->result();
+    return $data;
   }
   
-  public function insert($titre,$description,$prix,$idutilisateur,$files){
+  public function insert($titre,$description,$prix,$idutilisateur,$files, $idCategorie){
     $data = array(
       'id' => '',
       'titre' => $titre,
       'description' =>$description,
       'prix' => $prix,
-      'idutilisateur' => $idutilisateur
+      'idutilisateur' => $idutilisateur,
+      'idcategorie' => $idCategorie
     );
     $this->db->insert('objet',$data);
     $idObjet = $this->db->insert_id();

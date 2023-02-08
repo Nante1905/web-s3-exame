@@ -24,8 +24,10 @@ class Proposition extends CI_Controller
   public function __construct()
   {
     parent::__construct();
-    $this->load->model('Proposition_model','proposition',true);
     $this->load->model('Historiqueobjet_model','historique',true);
+    $this->load->model('Proposition_model','proposition',true);
+    $this->load->model('Utilisateur_model','user',true);
+    $this->load->model('Object_model','objet',true);
     $this->idUser = $this->session->usrsession;
   }
 
@@ -39,50 +41,60 @@ class Proposition extends CI_Controller
   }
 
   public function list() {
+
+
+    $propositions = $this->proposition->findAllByIdUserAngatahana($this->idUser);
+    $userMangataka = [];
+    $objetMangataka = [];
+    $objetAngatahana = [];
+    foreach($propositions as $proposition) {
+      $userMangataka[] = $this->user->findById($proposition->idutilisateurmangataka)[0];
+      $objetAngatahana[] = $this->objet->getObjectById($proposition->idobjetangatahana)[0];
+      $objetMangataka[] = $this->objet->getObjectById($proposition->idobjetmangataka)[0];
+    }
+
+
     $this->load->view('templates/body', [
       'htmlTitle' => 'List des propositions',
       'style' => ['list-proposition'],
-      'component' => 'list-proposition'
+      'component' => 'list-proposition',
+      'userMangataka' => $userMangataka,
+      'objetMangataka' => $objetMangataka,
+      'objetAngatahana' => $objetAngatahana,
+      'propositions' => $propositions
     ]);
   }
 
   public function proposer(){
-    $idobjetask = $this->input->post('idobjetmagataka');
-    // $idobjetask = $this->idUser;
-    // $idutilisateurask = $this->input->post('idutilisateurask');
-    $idutilisateurask = $this->idUser;
-    $idobjetgive = $this->input->post('idobjetmagataka');
-    $idutilisateurgive = $this->input->post('idutilisateurangatahana');
+    $idObjetMangataka = $this->input->post('idobjetmangataka');
+    $idObjetAngatahana = $this->input->post('idobjetangatahana');
+    $idUtilisateurAngatahana = $this->input->post('idutilisateurangatahana');
 
     $status = 1;
-    $this->proposition->insert($idobjetask,$idutilisateurask,$idobjetgive,$idutilisateurgive,$status);
+    $this->proposition->insert($idObjetAngatahana, $idUtilisateurAngatahana, $idObjetMangataka, $this->idUser, $status);
     redirect('objet/index');
   }
 
   public function refuser(){
-    $idobjetask = $this->input->post('idobjetask');
-    $idutilisateurask = $this->input->post('idutilisateurask');
-    $idobjetgive = $this->input->post('idobjetgive');
-    $idutilisateurgive = $this->input->post('idutilisateurgive');
-
-    $status = 0;
-    $this->proposition->updateStatus($idobjetask,$idutilisateurask,$status);
-    redirect('objet/index');
+    $propositionId = $this->input->get('id');
+    $this->proposition->updateStatus($propositionId,0);
+    
+    redirect('objet');
   }
 
   public function accepter(){
-    $idobjetask = $this->input->post('idobjetask');
-    $idutilisateurask = $this->input->post('idutilisateurask');
-    $idobjetgive = $this->input->post('idobjetgive');
-    $idutilisateurgive = $this->input->post('idutilisateurgive');
+    $propositionId = $this->input->get('id');
+    $proposition = $this->proposition->findById($propositionId);
 
-    $status = 2;
-    $this->proposition->updateStatus($idobjetask,$idutilisateurask,$status);
-    $this->historique->insert($idutilisateurgive,$idobjetask,$idutilisateurask);
-    $this->objet->update($idobjetask,$idutilisateurgive);
-    $this->objet->update($idobjetgive,$idutilisateurask);
-    redirect('objet/index');
+    $this->historique->insert($proposition->idutilisateurangatahana, $proposition->idobjetangatahana);
+    $this->historique->insert($proposition->idutilisateurmangataka, $proposition->idobjetmangataka);
 
+    $this->objet->changeOwner($proposition->idobjetangatahana, $proposition->idutilisateurmangataka);
+    $this->objet->changeOwner($proposition->idobjetmangataka, $proposition->idutilisateurangatahana);
+
+    $this->proposition->updateStatus($propositionId,2);
+
+    redirect('objet');
   }
 
 }
