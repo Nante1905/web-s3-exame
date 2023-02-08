@@ -31,6 +31,7 @@ class Objet extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Object_model','objet',true);
+    $this->load->model('Categorie_model','categorie',true);
     $this->props = [
       'component' => 'list-objet',
       'style' => ['list-objet'],
@@ -65,6 +66,33 @@ class Objet extends CI_Controller
 
     $this->load->view('templates/body',$data_detail);
   }
+
+  public function searchobject()
+  {
+    $search=$this->input->post('mots');
+    $categorie_name=$this->input->post('categorie');
+    $categorie_data= [
+      'categorie' => $this->categorie->findAll();
+    ];
+
+    foreach ($categorie_data as $row_data){
+      if ($row_data->nom==$categorie_name) {
+        $data_searched= [
+          'objet' => $this->objet->getObjectSearched($search,$row_data->id);
+        ];
+      }
+    }
+
+    $this->props = [
+      'component' => 'recherche-objet',
+      'style' => ['recherche-objet'],
+      'title' => 'Recherche objet'
+    ];
+    $data_found = array_merge($data_searched, $this->props);
+
+    $this->load->view('templates/body',$data_found);
+  }
+
 }
 
 

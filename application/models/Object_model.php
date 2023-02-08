@@ -53,6 +53,10 @@ class Object_model extends CI_Model {
     return $data;
   }
 
+  public function getObjectSearched($search,$idcategorie){
+    $query = "SELECT * FROM objet join objetcategorie on objet.id=objetcategorie.idobjet WHERE objetcategorie.idcategorie=".$idcategorie." LIKE '%" .$this->db->escape_like_str($search)."%' ESCAPE '!'";
+    $data_searched=$query-> result();
+  }
 
   // ------------------------------------------------------------------------
 
