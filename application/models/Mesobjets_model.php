@@ -74,7 +74,7 @@ class Mesobjets_model extends CI_Model {
       $_FILES['img']['error'] = $imgs['error'][$i];
       $_FILES['img']['size'] = $imgs['size'][$i];
 
-      $config['upload_path'] = './assets/uploads/';
+      $config['upload_path'] = './assets/upload/';
       $config['allowed_types'] = 'jpg|jpeg|png|gif';
       $config['max_size'] = '20000';
 
