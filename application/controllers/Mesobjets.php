@@ -33,8 +33,9 @@ class Mesobjets extends CI_Controller
   public function index()
   {
     $props = [
-      'component' => 'list-mes-objets',
-      'title' => 'Liste de mes objets'
+      'component' => 'mes-objet',
+      'title' => 'Liste de mes objets',
+      'style' =>['Objet-List','Objet-Boxed']
     ];
     $this->load->view('templates/body',$props);
   }
