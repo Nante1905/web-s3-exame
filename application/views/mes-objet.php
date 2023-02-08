@@ -10,8 +10,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>List_objet</title>
     <link rel="stylesheet" href="<?= base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/Objet-List.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/Objet-Boxed.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/mes-objets.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/Boxed-Object.css">
 </head>
 
 <body>

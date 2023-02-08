@@ -93,7 +93,7 @@ class Mesobjets extends CI_Controller
     }
     else{
       $this->objet->insert($titre,$description,$prix,$idUser,$_FILES['photos']);
-      // redirect('mesobjets/addForm');
+      redirect('mesobjets/addForm');
     }
 
   }
