@@ -1,11 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-    <div class="nav">
-		<div class="nav-item">Home</div>
-		<div class="nav-item">Mes Objets</div>
-		<div class="nav-item">Deconnexion</div>
-	</div>
+    <?php $this->load->view('templates/nav'); ?>
     <div class="all-img">
         <div class="descri-img">
             <div class="descri">

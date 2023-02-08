@@ -2,11 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="content">
-	<div class="nav">
-		<div class="nav-item"><?= anchor('objet/index','Home') ?></div>
-		<div class="nav-item"><?= anchor('mesobjets/index','Mes Objets') ?></div>
-		<div class="nav-item"><?= anchor('login/disconnect','Deconnexion') ?></div>
-	</div>
+	<?php $this->load->view('templates/nav'); ?>
+	
 	<div class="list-objets">
 		<?php foreach($objets as $objet) { ?>
 			<div class="card-objet">
