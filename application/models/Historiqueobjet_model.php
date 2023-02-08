@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  *
- * Model Proposition_model
+ * Model Historiqueobjet_model
  *
  * This Model for ...
  * 
@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  */
 
-class Proposition_model extends CI_Model {
+class Historiqueobjet_model extends CI_Model {
 
   // ------------------------------------------------------------------------
 
@@ -34,35 +34,20 @@ class Proposition_model extends CI_Model {
     // 
   }
 
-  public function insert($idobjetask,$idutilisateurask,$idobjetgive,$idutilisateurgive,$status){
+  public function insert($ancienutilisateur,$objet_id,$objet_idutilisateur){
     $data = array(
-      'idobjetask' => $idobjetask,
-      'idutilisateurask' => $idutilisateurask,
-      'idobjetgive' => $idobjetgive,
-      'idutilisateurgive'=> $idutilisateurgive,
       'dateproposition' => 'now()',
-      'status'=>$status
-
+      'ancienutilisateur' => $ancienutilisateur,
+      'objet_id' => $objet_id,
+      'objet_idutilisateur'=> $objet_idutilisateur
     );
-    $this->db->insert('proposition',$data);
-  }
 
-  public function updateStatus($idobjetask,$idutilisateurask,$status){
-    $data = [
-      'status' => $status
-    ];
-
-    $this->db->where([
-      'idobjetask' => $idobjetask,
-      'idutilisateurask' => $idutilisateurask
-    ]);
-
-    $this->db->update('proposition', $data);
+    $this->db->insert('historiqueobjet',$data);
   }
 
   // ------------------------------------------------------------------------
 
 }
 
-/* End of file Proposition_model.php */
-/* Location: ./application/models/Proposition_model.php */
+/* End of file Historiqueobjet_model.php */
+/* Location: ./application/models/Historiqueobjet_model.php */

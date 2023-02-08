@@ -25,7 +25,7 @@ class Proposition extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Proposition_model','proposition',true);
-    $this->load->model('Object_model','objet',true);
+    $this->load->model('Historiqueobjet_model','historique',true);
   }
 
   public function index()
@@ -33,33 +33,40 @@ class Proposition extends CI_Controller
     $this->load->view('templates/body');
   }
 
-  public function insert(){
+  public function proposer(){
     $idobjetask = $this->input->post('idobjetask');
     $idutilisateurask = $this->input->post('idutilisateurask');
     $idobjetgive = $this->input->post('idobjetgive');
     $idutilisateurgive = $this->input->post('idutilisateurgive');
+
+    $status = 1;
+    $this->proposition->insert($idobjetask,$idutilisateurask,$idobjetgive,$idutilisateurgive,$status);
+    redirect('proposition/index');
+  }
+
+  public function refuser(){
+    $idobjetask = $this->input->post('idobjetask');
+    $idutilisateurask = $this->input->post('idutilisateurask');
+    $idobjetgive = $this->input->post('idobjetgive');
+    $idutilisateurgive = $this->input->post('idutilisateurgive');
+
     $status = 0;
+    $this->proposition->updateStatus($idobjetask,$idutilisateurask,$status);
+    redirect('proposition/index');
+  }
 
-    $action = $this->input->get('action');
+  public function accepter(){
+    $idobjetask = $this->input->post('idobjetask');
+    $idutilisateurask = $this->input->post('idutilisateurask');
+    $idobjetgive = $this->input->post('idobjetgive');
+    $idutilisateurgive = $this->input->post('idutilisateurgive');
 
-    if($action == "proposer"){
-      $status = 1;
-      $this->proposition->insert($idobjetask,$idutilisateurask,$idobjetgive,$idutilisateurgive,$status);
-      redirect('proposition/index');
-    } elseif($action == "refuser"){
-      $status = 1;
-      $this->proposition->update($idobjetask,$idutilisateurask,$status);
-      redirect('proposition/index');
-
-    } else if($action == "accepter"){
-      $status = 2;
-      $this->proposition->update($idobjetask,$idutilisateurask,$status);
-      $this->objet->update($idobjetask,$idutilisateurgive);
-      $this->objet->update($idobjetgive,$idutilisateurask);
-      redirect('proposition/index');
-
-    }
-
+    $status = 2;
+    $this->proposition->updateStatus($idobjetask,$idutilisateurask,$status);
+    $this->historique->insert($idutilisateurgive,$idobjetask,$idutilisateurask);
+    $this->objet->update($idobjetask,$idutilisateurgive);
+    $this->objet->update($idobjetgive,$idutilisateurask);
+    redirect('proposition/index');
 
   }
 
