@@ -54,13 +54,14 @@ class Mesobjets_model extends CI_Model {
     return $data;
   }
   
-  public function insert($titre,$description,$prix,$idutilisateur,$files){
+  public function insert($titre,$description,$prix,$idutilisateur,$files, $idCategorie){
     $data = array(
       'id' => '',
       'titre' => $titre,
       'description' =>$description,
       'prix' => $prix,
-      'idutilisateur' => $idutilisateur
+      'idutilisateur' => $idutilisateur,
+      'idcategorie' => $idCategorie
     );
     $this->db->insert('objet',$data);
     $idObjet = $this->db->insert_id();
