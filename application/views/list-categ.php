@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <h1>Catégories</h1>
 <div class="add"><?= anchor('admin/form?action=add','<button>Ajouter</button>') ?></div>
+<div class="add"><?= anchor('admin/stat','<button>Statistiques</button>') ?></div>
 <div class="categ">
     <?php foreach($categories as $categorie) { ?>
         <div class="sous-categ">

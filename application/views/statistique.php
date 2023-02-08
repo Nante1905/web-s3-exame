@@ -1,17 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= base_url() ;?>statistique.css">
-    <title>Document</title>
-</head>
-<body>
+<h1 style="text-align:center;">Statistiques Admin</h1>
     <div class="container">
         <div class="stat">
             <center><div class="h2"><p><h2>Nombre d'</h2></p></div></center>
@@ -24,11 +14,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <hr>
             <div class="container-nbr">
                 <p> 
-                    <div class="chiffre" id="saraka">25</div>
-                    <div class="chiffre">13</div>
+                    <div class="chiffre" id="saraka"><?= $usr ?></div>
+                    <div class="chiffre"><?= $echange ?></div>
                 </p>
             </div>
         </div>
     </div>
-</body>
-</html>

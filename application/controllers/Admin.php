@@ -112,9 +112,16 @@ class Admin extends CI_Controller
   }
 
   public function stat() {
-    $nbrUser = $this->user->getCount();
+    $nbrUser = $this->user->getCount()->nbr;
     $nbrEchange = $this->hist->getCount();
 
+    $this->load->view('templates/body', [
+      'htmlTitle' => 'Statistiques',
+      'component' => 'statistique',
+      'style' => ['statistique'],
+      'usr' => $nbrUser,
+      'echange' => $nbrEchange
+    ]);
     // $this->load->view();
   }
 

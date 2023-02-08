@@ -29,7 +29,7 @@ class Test extends CI_Controller
   public function index()
   {
 
-    $this->load->view('mes-objet');
+    $this->load->view('statistique');
   }
   public function categorie(){
     $props = [
