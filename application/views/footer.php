@@ -2,11 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>    
     <div class="footer">
-        <div class="nom">
+        <div class="footer-nom">
             <p><Label> Nom et Prenom</Label></p>
-            <p>Grace</p>
-            <p>Nantenaina</p>
-            <p>Elito</p>
+            <p>ANDRIANISOA Hariniaina Grace</p>
+            <p>ANDRIAMAZAORO Minohary Nantenaina</p>
+            <p>FANAHY MANAMPENO Joss Elito</p>
         </div>
         <div class="etu">
             <p><Label>Numero ETU</Label></p>

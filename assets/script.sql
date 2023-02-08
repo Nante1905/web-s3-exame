@@ -64,12 +64,12 @@ insert into categorie (nom) values ('Vetement'),
                                     ('Construction'),
                                     ('Auto-moto');
 
-insert into objet (titre,description,prix,idutilisateur) values ('Voiture','En bon etat',200000000,2),
-                                                                ('Robe','Usee',1500,1),
-                                                                ('Imprimante','Usee',35000,3),
-                                                                ('Machine a laver','Neuve',6300000,4),
-                                                                ('maison','luxueuse et spacieuse',150000000,1),
-                                                                ('ordinateur','neuf',6000000,2);
+insert into objet (titre,description,prix,idutilisateur,idcategorie) values ('Voiture','En bon etat',200000000,2,5),
+                                                                ('Robe','Usee',1500,1,1),
+                                                                ('Imprimante','Usee',35000,3,2),
+                                                                ('Machine a laver','Neuve',6300000,4,3),
+                                                                ('maison','luxueuse et spacieuse',150000000,1,4),
+                                                                ('ordinateur','neuf',6000000,2,2);
 
 
 insert into objetphoto (url,idobjet) values ('blackhouse',5),

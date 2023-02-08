@@ -4,9 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="content">
 	<?php $this->load->view('templates/nav'); ?>
 	<div class="search">
-		<?= form_open('objet/searchobject') ?>
-			<input type="text" name="search" id="search">
-			<select name="categorie" id="">
+		<?= form_open('objet/result') ?>
+			<input type="text" name="titre" id="search">
+			<select name="idcategorie" id="">
 				<?php for($i=0;$i<sizeof($categorie);$i++){	?>
 
 					<option value="<?= $categorie[$i]->id ?>"><?= $categorie[$i]->nom ?></option>
