@@ -20,12 +20,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Proposition extends CI_Controller
 {
-    
+  public $idUser;
   public function __construct()
   {
     parent::__construct();
     $this->load->model('Proposition_model','proposition',true);
     $this->load->model('Historiqueobjet_model','historique',true);
+    $this->idUser = $this->session->usrsession;
   }
 
   public function index()
@@ -46,10 +47,12 @@ class Proposition extends CI_Controller
   }
 
   public function proposer(){
-    $idobjetask = $this->input->post('idobjetask');
-    $idutilisateurask = $this->input->post('idutilisateurask');
-    $idobjetgive = $this->input->post('idobjetgive');
-    $idutilisateurgive = $this->input->post('idutilisateurgive');
+    $idobjetask = $this->input->post('idobjetmagataka');
+    // $idobjetask = $this->idUser;
+    // $idutilisateurask = $this->input->post('idutilisateurask');
+    $idutilisateurask = $this->idUser;
+    $idobjetgive = $this->input->post('idobjetmagataka');
+    $idutilisateurgive = $this->input->post('idutilisateurangatahana');
 
     $status = 1;
     $this->proposition->insert($idobjetask,$idutilisateurask,$idobjetgive,$idutilisateurgive,$status);

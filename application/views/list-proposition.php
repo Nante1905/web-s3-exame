@@ -11,8 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="asked-objet-nom">robe.</div>
             </div>
             <div class="action">
-                <div class="accept"><button class="accept-btn">Accpeter</button></div>
-                <div class="refuse"><button class="refuse-btn">Refuser</button></div>
+                <div class="accept"><?= anchor('','<button class="accept-btn">Accepter</button>'); ?></div>
+                <div class="refuse"><?= anchor('','<button class="refuse-btn">Refuser</button>'); ?></div>
             </div>
         </div>
         <div class="prop-container">
