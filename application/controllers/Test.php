@@ -29,7 +29,7 @@ class Test extends CI_Controller
   public function index()
   {
 
-    $this->load->view('Ajout');
+    $this->load->view('mes-objet');
   }
   public function categorie(){
     $props = [
@@ -43,6 +43,14 @@ class Test extends CI_Controller
     $props = [
       'component' => 'form-categ',
       'style' => ['form-categ'],
+      'title' => 'Modification categorie'
+    ];
+    $this->load->view('templates/body',$props);
+  }
+  public function detail(){
+    $props = [
+      'component' => 'detail-objet',
+      'style' => ['detail-objet'],
       'title' => 'Modification categorie'
     ];
     $this->load->view('templates/body',$props);
