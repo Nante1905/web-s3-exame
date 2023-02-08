@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
             <?php foreach($photos as $photo) { ?>
                 <div class="img">
-                    <img src="<?= base_url() ?>assets/upload/<?= $photo->url ?>.jpg" alt="">
+                    <img src="<?= base_url() ?>assets/upload/<?= $photo->url ?>" alt="">
                 </div>
             <?php } ?>
             <!-- <div class="img">
