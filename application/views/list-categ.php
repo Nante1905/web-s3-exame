@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<?= anchor('login/disconnect','Se deconnecter') ?>
 <h1>Catégories</h1>
 <div class="add"><?= anchor('admin/form?action=add','<button>Ajouter</button>') ?></div>
 <div class="add"><?= anchor('admin/stat','<button>Statistiques</button>') ?></div>

@@ -46,6 +46,7 @@ class Login extends CI_Controller
 
     if($email=='admin'){
       if($mdp=='admin'){
+        $this->session->set_userdata('usrsession', '-1');
         redirect('admin');
       }
     }
