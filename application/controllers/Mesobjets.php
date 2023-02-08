@@ -33,6 +33,7 @@ class Mesobjets extends CI_Controller
       'required' => 'Le champ %s est obligatoire'
     ]; 
     $this->idUser = $this->session->userdata('usrsession');
+    // $this->idUser = 2;
   }
 
   public function index()
@@ -46,6 +47,7 @@ class Mesobjets extends CI_Controller
     // $this->load->view('templates/body',$props);
     $this->load->view('mes-objet', [
       'objets' => $this->objet->findAllById($this->idUser)
+      // 'photo' => $this->objetPhoto->findAllByid(2)
     ]);
   }
 
@@ -129,7 +131,7 @@ class Mesobjets extends CI_Controller
       redirect('mesobjets/index');
     }
     else{
-      redirect('');
+      redirect('mesobjets/index');
     }
   }
 

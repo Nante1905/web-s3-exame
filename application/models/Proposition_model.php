@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  *
- * Model Object_model
+ * Model Proposition_model
  *
  * This Model for ...
  * 
@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  */
 
-class Object_model extends CI_Model {
+class Proposition_model extends CI_Model {
 
   // ------------------------------------------------------------------------
 
@@ -34,41 +34,35 @@ class Object_model extends CI_Model {
     // 
   }
 
-  /*
-  tous les object sauf les siennes
-  */
-  public function getAllExceptUsr(){
-    $this->db->select('*');
-    $this->db->where('idutilisateur !=',$this->session->userdata('usrsession'));
-    $query=$this->db->get('objet');
-    $data=$query->result();
-    return $data;
+  public function insert($idobjetask,$idutilisateurask,$idobjetgive,$idutilisateurgive,$status){
+    $data = array(
+      'idobjetask' => $idobjetask,
+      'idutilisateurask' => $idutilisateurask,
+      'idobjetgive' => $idobjetgive,
+      'idutilisateurgive'=> $idutilisateurgive,
+      'dateproposition' => 'now()',
+      'status'=>$status
+
+    );
+    $this->db->insert('proposition',$data);
   }
 
-  public function getObjectById($id){
-    $this->db->select('*');
-    $this->db->where(['id'=>$id]);
-    $query=$this->db->get('objet');
-    $data=$query->result();
-    return $data;
-  }
-
-  public function update($idObjet,$idutilisateur){
+  public function update($idobjetask,$idutilisateurask,$status){
     $data = [
-      'idutilisateur' => $idutilisateur
+      'status' => $status
     ];
 
     $this->db->where([
-      'id' => $idObjet
+      'idobjetask' => $idobjetask,
+      'idutilisateurask' => $idutilisateurask
     ]);
 
-    $this->db->update('objet', $data);
+    $this->db->update('proposition', $data);
   }
-
 
   // ------------------------------------------------------------------------
 
 }
 
-/* End of file Object_model.php */
-/* Location: ./application/models/Object_model.php */
+/* End of file Proposition_model.php */
+/* Location: ./application/models/Proposition_model.php */
