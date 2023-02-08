@@ -92,6 +92,7 @@ class Mesobjets extends CI_Controller
       $this->load->view('form-ajout-objet');
     }
     else{
+      var_dump($_FILES['photos']);
       $this->objet->insert($titre,$description,$prix,$idUser,$_FILES['photos']);
       // redirect('mesobjets/addForm');
     }
