@@ -28,6 +28,31 @@ create table objetphoto (
     foreign key (idobjet) references objet(id)
 );
 
+create table proposition (
+    idobjetask int,
+    idutilisateurask int,
+    idobjetgive int,
+    idutilisateurgive int,
+    dateproposition date,
+    status int,
+    foreign key (idobjetask) references objet(id),
+    foreign key (idutilisateurask) references utilisateur(id),
+    foreign key (idobjetgive) references objet(id),
+    foreign key (idutilisateurgive) references utilisateur(id)
+);
+
+create table historiqueobjet (
+    idobjet int,
+    dateheurechange datetime,
+    ancienutilisateur int,
+    objet_id int,
+    objet_idutilisateur int,
+    foreign key (idobjet) references objet(id),
+    foreign key (ancienutilisateur) references utilisateur(id),
+    foreign key (objet_id) references objet(id),
+    foreign key (objet_idutilisateur) references utilisateur(id)
+);
+
 insert into utilisateur (nom,email,password) values ('Jean','jean@gmail.com','jean1'),
                                                     ('Chris','chris@gmail.com','chris1'),
                                                     ('Tony','tony@gmail.com','tony1'),
