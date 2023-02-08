@@ -34,17 +34,32 @@ class Proposition_model extends CI_Model {
     // 
   }
 
-  public function findAllByIdUserAsk() {
-    # code...
+  public function findAllByIdUserAngatahana($id) {
+    $this->db->where([
+      'idutilisateurangatahana' => $id,
+      'status' => 1
+    ]);
+    $query = $this->db->get('proposition');
+
+    return $query->result();
   }
 
-  public function insert($idobjetask,$idutilisateurask,$idobjetgive,$idutilisateurgive,$status){
+  public function findById($id) {
+    $this->db->where([
+      'id' => $id
+    ]);
+
+    $query = $this->db->get('proposition');
+    return $query->result()[0];
+  }
+
+  public function insert($idObjetAngatahana,$idUserAngatahana,$idObjetMangataka,$idUserMangataka,$status){
     $now = date('Y-m-d H:i:s');
     $data = array(
-      'idobjetmagataka' => $idobjetask,
-      'idutilisateurmangataka' => $idutilisateurask,
-      'idobjetangatahana' => $idobjetgive,
-      'idutilisateurangatahana'=> $idutilisateurgive,
+      'idobjetmangataka' => $idObjetMangataka,
+      'idutilisateurmangataka' => $idUserMangataka,
+      'idobjetangatahana' => $idObjetAngatahana,
+      'idutilisateurangatahana'=> $idUserAngatahana,
       'dateproposition' => $now,
       'status'=>$status
 
@@ -52,14 +67,13 @@ class Proposition_model extends CI_Model {
     $this->db->insert('proposition',$data);
   }
 
-  public function updateStatus($idobjetask,$idutilisateurask,$status){
+  public function updateStatus($id,$status){
     $data = [
       'status' => $status
     ];
 
     $this->db->where([
-      'idobjetmagataka' => $idobjetask,
-      'idutilisateurmangataka' => $idutilisateurask
+      'id' => $id
     ]);
 
     $this->db->update('proposition', $data);

@@ -34,12 +34,12 @@ class Historiqueobjet_model extends CI_Model {
     // 
   }
 
-  public function insert($ancienutilisateur,$objet_id,$objet_idutilisateur){
+  public function insert($ancienutilisateur,$objet_id){
+    $now = date('Y-m-d H:i:s');
     $data = array(
-      'dateproposition' => 'now()',
+      'dateheurechange' => $now,
       'ancienutilisateur' => $ancienutilisateur,
-      'objet_id' => $objet_id,
-      'objet_idutilisateur'=> $objet_idutilisateur
+      'idobjet' => $objet_id
     );
 
     $this->db->insert('historiqueobjet',$data);

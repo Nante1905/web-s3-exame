@@ -31,13 +31,15 @@ create table objetphoto (
 );
 
 create table proposition (
-    idobjetmagataka int,
+    id int not null auto_increment,
+    idobjetmangataka int,
     idutilisateurmangataka int,
     idobjetangatahana int,
     idutilisateurangatahana int,
     dateproposition datetime,
     status int,
-    foreign key (idobjetmagataka) references objet(id),
+    primary key(id),
+    foreign key (idobjetmangataka) references objet(id),
     foreign key (idutilisateurmangataka) references utilisateur(id),
     foreign key (idobjetangatahana) references objet(id),
     foreign key (idutilisateurangatahana) references utilisateur(id)
@@ -48,8 +50,7 @@ create table historiqueobjet (
     ancienutilisateur int,
     dateheurechange datetime,
     foreign key (idobjet) references objet(id),
-    foreign key (ancienutilisateur) references utilisateur(id),
-    foreign key (objet_idutilisateur) references utilisateur(id)
+    foreign key (ancienutilisateur) references utilisateur(id)
 );
 
 insert into utilisateur (nom,email,password) values ('Jean','jean@gmail.com','jean1'),

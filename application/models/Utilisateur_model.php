@@ -65,6 +65,15 @@ class Utilisateur_model extends CI_Model {
     return $query->result()[0];
   }
 
+  public function findById($id) {
+    $this->db->where([
+      'id' => $id
+    ]);
+    $query = $this->db->get('utilisateur');
+
+    return $query->result();
+  }
+
   // ------------------------------------------------------------------------
 
 }
