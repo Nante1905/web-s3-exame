@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="search">
 		<?= form_open('objet/searchobject') ?>
 			<input type="text" name="search" id="search">
-			<select name="" id="">
+			<select name="categorie" id="">
 				<?php for($i=0;$i<sizeof($categorie);$i++){	?>
 
 					<option value="<?= $categorie[$i]->id ?>"><?= $categorie[$i]->nom ?></option>

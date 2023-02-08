@@ -68,8 +68,10 @@ class Object_model extends CI_Model {
   }
 
   public function getObjectSearched($search,$idcategorie){
-    $query = "SELECT * FROM objet join objetcategorie on objet.id=objetcategorie.idobjet WHERE objetcategorie.idcategorie=".$idcategorie." LIKE '%" .$this->db->escape_like_str($search)."%' ESCAPE '!'";
-    $data_searched=$query-> result();
+    $sql = "SELECT * FROM objet WHERE idcategorie=".$idcategorie." LIKE '%" .$this->db->escape_like_str($search)."%' ESCAPE '!'";
+    $query = $this->db->query($sql);
+    $data_searched=$query-> result_array();
+    return $data_searched;
   }
   public function update($idObjet,$idutilisateur){
     $data = [
