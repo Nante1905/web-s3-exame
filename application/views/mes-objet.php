@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <title>List_objet</title>
     <link rel="stylesheet" href="<?= base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url() . '/assets/css/nav.css' ?>">
-
+    <link rel="stylesheet" href="<?= base_url() . '/assets/css/footer.css' ?>">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/mes-objets.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/Boxed-Object.css">
 </head>
@@ -41,6 +41,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </section>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <div class="footer">
+        <div class="nom">
+        <p><Label> Nom et Prenom</Label></p>
+            <p>ANDRIANISOA Hariniaina Grace</p>
+            <p>ANDRIAMAZAORO Minohary Nantenaina</p>
+            <p>FANAHY MANAMPENO Joss Elito</p>
+        </div>
+        <div class="etu">
+            <p><Label>Numero ETU</Label></p>
+            <p>001764</p>
+            <p>001752</p>
+            <p>001773</p>
+        </div>
+    </div>
 </body>
 
 </html>
