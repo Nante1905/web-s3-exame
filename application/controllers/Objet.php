@@ -42,7 +42,8 @@ class Objet extends CI_Controller
   public function index()
   {
     $data= [
-      'objets' => $this->objet->getAllExceptUsr()
+      'objets' => $this->objet->getAllExceptUsr(),
+      'categorie' => $this->categorie->findAll()
     ];
 
     $dataAll = array_merge($data, $this->props);
@@ -56,7 +57,8 @@ class Objet extends CI_Controller
     $objet_data= [
       'objetDetail' => $objet,
       'mesObjets' => $this->mesObjets->findAllById($this->idUser),
-      'photos' => $this->objetPhoto->findByIdObjet($objet->id)
+      'photos' => $this->objetPhoto->findByIdObjet($objet->id),
+      'categorie' => $this->categorie->findAll()
     ];
     //ty tsy haiko raha mety an izao fa nataoko an io aloha 
     //sody afaka ampiana getter setters? le props? 
