@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="img"><img src="" alt="Image" /></div>
 
 				<div class="card-info">
-					<div class="nom"><?= $objet->titre ?></div>
+					<div class="nom"><?= anchor('objet/detail/'.$objet->id, $objet->titre) ?></div>
 					<div class="prix"><?= $objet->prix ?></div>
 				</div>
 			</div>

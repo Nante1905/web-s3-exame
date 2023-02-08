@@ -21,9 +21,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Objet extends CI_Controller
 {
 
-  public $id;
-  public $descri;
-  public $prix ;
   public $idUser;
   public $props;
   
@@ -31,12 +28,15 @@ class Objet extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Object_model','objet',true);
+    $this->load->model('Mesobjets_model','mesObjets',true);
     $this->load->model('Categorie_model','categorie',true);
+    $this->load->model('ObjetPhoto_model', 'objetPhoto', true);
     $this->props = [
       'component' => 'list-objet',
       'style' => ['list-objet'],
       'title' => 'Liste objets'
     ];
+    $this->idUser = $this->session->usrsession;
   }
 
   public function index()
@@ -52,8 +52,11 @@ class Objet extends CI_Controller
 
   public function detail($id)
   {
+    $objet = $this->objet->getObjectById($id)[0];
     $objet_data= [
-      'objets' => $this->objet->getObjectById($id)
+      'objetDetail' => $objet,
+      'mesObjets' => $this->mesObjets->findAllById($this->idUser),
+      'photos' => $this->objetPhoto->findByIdObjet($objet->id)
     ];
     //ty tsy haiko raha mety an izao fa nataoko an io aloha 
     //sody afaka ampiana getter setters? le props? 
