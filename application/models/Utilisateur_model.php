@@ -59,6 +59,12 @@ class Utilisateur_model extends CI_Model {
     $this->db->insert('utilisateur',$data);
   }
 
+  public function getCount() {
+    $this->db->select(['count(*) as nbr']);
+    $query = $this->db->get('utilisateur');
+    return $query->result()[0];
+  }
+
   // ------------------------------------------------------------------------
 
 }

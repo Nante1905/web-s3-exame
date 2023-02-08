@@ -25,6 +25,8 @@ class Admin extends CI_Controller
   {
     parent::__construct();
     $this->load->model('Categorie_model', 'categorie', true);
+    $this->load->model('Utilisateur_model', 'user', true);
+    $this->load->model('Historiqueobjet_model', 'hist', true);
   }
 
   public function index()
@@ -107,6 +109,13 @@ class Admin extends CI_Controller
     $id = $this->input->get('id');
     $this->categorie->delete($id);
     redirect('admin');
+  }
+
+  public function stat() {
+    $nbrUser = $this->user->getCount();
+    $nbrEchange = $this->hist->getCount();
+
+    // $this->load->view();
   }
 
 }

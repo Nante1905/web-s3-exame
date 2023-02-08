@@ -45,6 +45,13 @@ class Historiqueobjet_model extends CI_Model {
     $this->db->insert('historiqueobjet',$data);
   }
 
+  public function getCount() {
+    $this->db->select(['count(*) as nbr']);
+    $query = $this->db->get('historiqueobjet');
+
+    return ($query->result()[0]->nbr)/2;
+  }
+
   // ------------------------------------------------------------------------
 
 }
