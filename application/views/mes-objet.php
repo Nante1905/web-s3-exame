@@ -10,11 +10,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>List_objet</title>
     <link rel="stylesheet" href="<?= base_url(); ?>assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?= base_url() . '/assets/css/nav.css' ?>">
+
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/mes-objets.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/Boxed-Object.css">
 </head>
 
 <body>
+<?php $this->load->view('templates/nav'); ?>
+    
     <section class="features-boxed"></section>
     <section class="article-list">
         <div class="container">
@@ -30,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <p class="description"><label for="">Description :</label> <?= $objet->description ?></p>
                         <p></p>
                         <!-- TODO -->
-                        <div></div><span><?= anchor('mesobjets/updateForm', '<button class="btn-primary" type="button">Update</button>') ?></span><span><?= anchor('mesobjets/delete?id='.$objet->id, '<button class="btn-primary" type="button">Delete</button>') ?></span>
+                        <div></div><span><?= anchor('mesobjets/updateForm?id='.$objet->id, '<button class="btn-primary" type="button">Update</button>') ?></span><span><?= anchor('mesobjets/delete?id='.$objet->id, '<button class="btn-primary" type="button">Delete</button>') ?></span>
                     </div>
                 <?php } ?>
             </div>

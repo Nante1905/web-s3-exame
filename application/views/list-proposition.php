@@ -1,3 +1,7 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
+<?php $this->load->view('templates/nav'); ?>
 <div class="container">
     <div class="list-proposition">
         <div class="prop-container">

@@ -40,10 +40,10 @@ class Proposition_model extends CI_Model {
 
   public function insert($idobjetask,$idutilisateurask,$idobjetgive,$idutilisateurgive,$status){
     $data = array(
-      'idobjetask' => $idobjetask,
-      'idutilisateurask' => $idutilisateurask,
-      'idobjetgive' => $idobjetgive,
-      'idutilisateurgive'=> $idutilisateurgive,
+      'idobjetmagataka' => $idobjetask,
+      'idutilisateurmangataka' => $idutilisateurask,
+      'idobjetangatahana' => $idobjetgive,
+      'idutilisateurangatahana'=> $idutilisateurgive,
       'dateproposition' => 'now()',
       'status'=>$status
 
@@ -57,8 +57,8 @@ class Proposition_model extends CI_Model {
     ];
 
     $this->db->where([
-      'idobjetask' => $idobjetask,
-      'idutilisateurask' => $idutilisateurask
+      'idobjetmagataka' => $idobjetask,
+      'idutilisateurmangataka' => $idutilisateurask
     ]);
 
     $this->db->update('proposition', $data);

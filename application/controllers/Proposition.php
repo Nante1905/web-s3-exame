@@ -30,7 +30,11 @@ class Proposition extends CI_Controller
 
   public function index()
   {
-    $this->load->view('templates/body');
+    $data = [
+      'style' => ['list-proposition'],
+      'component' => 'list-proposition'
+    ];
+    $this->load->view('templates/body',$data);
   }
 
   public function list() {
@@ -49,7 +53,7 @@ class Proposition extends CI_Controller
 
     $status = 1;
     $this->proposition->insert($idobjetask,$idutilisateurask,$idobjetgive,$idutilisateurgive,$status);
-    redirect('proposition/index');
+    redirect('objet/index');
   }
 
   public function refuser(){
@@ -60,7 +64,7 @@ class Proposition extends CI_Controller
 
     $status = 0;
     $this->proposition->updateStatus($idobjetask,$idutilisateurask,$status);
-    redirect('proposition/index');
+    redirect('objet/index');
   }
 
   public function accepter(){
@@ -74,7 +78,7 @@ class Proposition extends CI_Controller
     $this->historique->insert($idutilisateurgive,$idobjetask,$idutilisateurask);
     $this->objet->update($idobjetask,$idutilisateurgive);
     $this->objet->update($idobjetgive,$idutilisateurask);
-    redirect('proposition/index');
+    redirect('objet/index');
 
   }
 
