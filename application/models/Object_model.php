@@ -45,7 +45,7 @@ class Object_model extends CI_Model {
     return $data;
   }
 
-  public function getObjectById($id){
+  public function getObjectById($id) {
     $this->db->select('*');
     $this->db->where(['id'=>$id]);
     $query=$this->db->get('objet');

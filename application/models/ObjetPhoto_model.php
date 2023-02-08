@@ -45,6 +45,13 @@ class ObjetPhoto_model extends CI_Model {
     $this->db->insert('objetphoto', $data);
   }
 
+  public function findByIdObjet($idObjet) {
+    $this->db->where([
+      'idobjet' => $idObjet
+    ]);
+    $query = $this->db->get('objetphoto');
+    return $query->result();
+  }
   public function findAllById($id){
     $this->db->where([
       'idobjet' => $id
