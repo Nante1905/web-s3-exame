@@ -6,12 +6,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="search">
 		<?= form_open('') ?>
 			<input type="text" name="search" id="search">
-			<select name="categ" id="categ">
-				<?php var_dump($categorie) ?>
-				<?php for($i=0;$i<$categorie;$i++){ ?>
-					<option value=""><?= $categorie[$i]->nom; ?></option>
-			<?php
-				} ?>
+			<select name="" id="">
+				<option value="">Categ1</option>
+				<option value="">Categ1</option>
+				<option value="">Categ1</option>
+				<option value="">Categ1</option>
 			</select>
 			<input type="submit" value="Rechercher">
 		<?= form_close(); ?>
