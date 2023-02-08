@@ -38,11 +38,13 @@ class Object_model extends CI_Model {
   tous les object sauf les siennes
   */
   public function getAllExceptUsr(){
-    $this->db->select('*');
-    $this->db->from('objet');
+    $this->db->select(['objet.*', 'objetphoto.url']);
     $this->db->join('objetphoto', 'objet.id = objetphoto.idobjet');
     $this->db->where('idutilisateur !=',$this->session->userdata('usrsession'));
     $this->db->group_by("objet.id");
+
+    $query = $this->db->get('objet');
+
     $data=$query->result();
     return $data;
   }
