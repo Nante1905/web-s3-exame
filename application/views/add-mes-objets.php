@@ -19,6 +19,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <h2 class="text-center">Ajouter un objet</h2>
             <div class="mb-3"><input class="form-control" type="text" name="titre" placeholder="Titre"></div><input class="form-control" type="number" name="prix" placeholder="Prix de l'objet">
             <div class="mb-3"></div><input class="form-control" type="file" name="photos[]" multiple>
+            <div class="mb-3">
+                    <select name="" value="1" id="" class="form-control">
+                        <object data="" type="">Vetement</object>
+                        <object data="" type="">Auto-moto</object>
+                        <object data="" type="">Construction</object>                        
+                    </select> 
+                </div>
             <div class="mb-3"></div><textarea class="form-control" name="description" placeholder="Description"></textarea>
             <div class="mb-3"><button class="btn btn-primary" type="submit">AJOUTER</button></div>
         </form>
